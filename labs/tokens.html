@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Token Foundation — Lushington Road Design System</title>
+<style>
+/* ============ P1 · TOKEN FOUNDATION ============
+   Palette A is the live brand palette used by index.html and
+   thank-you.html. B/C/D are complete alternates — re-skin the whole
+   system by swapping this one block. */
+:root{
+  --color-primary:#1F332A; --color-primary-dark:#16261F;
+  --color-on-primary:#F7F3EA; --color-on-primary-mut:#C9D2CB;
+  --color-secondary:#8FA697;
+  --color-accent:#2C4A3B; --color-accent-dark:#233B2F; --color-on-accent:#F7F3EA;
+  --cta-on-dark:#D3B26A; --cta-on-dark-text:#1F332A;
+  --color-flourish:#C2A25B; --color-on-primary-err:#F1A79E;
+  --color-background:#F6F2EA; --color-surface:#FFFFFF;
+  --color-foreground:#22302A; --color-foreground-mut:#54635B;
+  --color-muted:#EDE7DB; --color-border:#E2DCCE; --color-border-strong:#C9C0AC;
+  --color-success:#2E6B4F; --color-error:#A63B32; --color-star:#C2A25B;
+  --radius:12px; --radius-sm:8px; --radius-lg:20px; --radius-pill:999px;
+  --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px; --sp-5:48px; --sp-6:64px; --sp-7:80px;
+  --font-head:"Avenir Next","Century Gothic","Futura","Segoe UI",system-ui,sans-serif;
+  --font-body:"Seravek","Gill Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --ease-out:cubic-bezier(.22,1,.36,1); --ease-soft:cubic-bezier(.45,0,.15,1);
+  --dur-fast:240ms; --dur-med:460ms; --dur-slow:680ms;
+}
+/* Alternate palettes — applied to <body> via data-palette */
+[data-palette="b"]{
+  --color-primary:#232B3A; --color-primary-dark:#181E2A;
+  --color-on-primary:#F2F4F8; --color-on-primary-mut:#C4CBD8;
+  --color-secondary:#8B97AD;
+  --color-accent:#31405C; --color-accent-dark:#263248; --color-on-accent:#F2F4F8;
+  --cta-on-dark:#D9A662; --cta-on-dark-text:#232B3A;
+  --color-flourish:#C99B5A; --color-on-primary-err:#F1A79E;
+  --color-background:#F4F3F0; --color-surface:#FFFFFF;
+  --color-foreground:#242B38; --color-foreground-mut:#535D6E;
+  --color-muted:#E9E7E1; --color-border:#DEDBD2; --color-border-strong:#C3BFB2;
+  --color-success:#2E6B4F; --color-error:#A63B32; --color-star:#C99B5A;
+}
+[data-palette="c"]{
+  --color-primary:#3A2A33; --color-primary-dark:#2B1F26;
+  --color-on-primary:#F8F2F0; --color-on-primary-mut:#D6C7CC;
+  --color-secondary:#A98E97;
+  --color-accent:#5C3A4A; --color-accent-dark:#472D39; --color-on-accent:#F8F2F0;
+  --cta-on-dark:#DFB27C; --cta-on-dark-text:#3A2A33;
+  --color-flourish:#CFA06A; --color-on-primary-err:#F4ACA2;
+  --color-background:#F7F2EE; --color-surface:#FFFFFF;
+  --color-foreground:#332630; --color-foreground-mut:#66525C;
+  --color-muted:#EFE6E1; --color-border:#E4D8D1; --color-border-strong:#CBBAB0;
+  --color-success:#2E6B4F; --color-error:#A63B32; --color-star:#CFA06A;
+}
+[data-palette="d"]{
+  --color-primary:#1C3438; --color-primary-dark:#132528;
+  --color-on-primary:#F0F6F5; --color-on-primary-mut:#BFD2D0;
+  --color-secondary:#7FA3A0;
+  --color-accent:#255E58; --color-accent-dark:#1C4844; --color-on-accent:#F0F6F5;
+  --cta-on-dark:#E0B15D; --cta-on-dark-text:#1C3438;
+  --color-flourish:#CBA45C; --color-on-primary-err:#F1A79E;
+  --color-background:#F2F4F1; --color-surface:#FFFFFF;
+  --color-foreground:#1F2E2C; --color-foreground-mut:#4E625F;
+  --color-muted:#E5E9E3; --color-border:#DAE0D8; --color-border-strong:#BBC6B9;
+  --color-success:#2E6B4F; --color-error:#A63B32; --color-star:#CBA45C;
+}
+*,*::before,*::after{ box-sizing:border-box; }
+body{ margin:0; font-family:var(--font-body); background:var(--color-background); color:var(--color-foreground); line-height:1.6; padding:var(--sp-4) var(--sp-2) var(--sp-7); }
+h1,h2,h3{ font-family:var(--font-head); margin:0 0 var(--sp-2); }
+.wrap{ max-width:1100px; margin:0 auto; }
+.picker{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:var(--sp-4); }
+.picker button{ font:inherit; padding:10px 18px; border-radius:var(--radius-pill); border:1px solid var(--color-border-strong); background:var(--color-surface); cursor:pointer; }
+.picker button[aria-pressed="true"]{ background:var(--color-primary); color:var(--color-on-primary); border-color:var(--color-primary); }
+.table-scroll{ overflow-x:auto; margin-bottom:var(--sp-5); border-radius:var(--radius); }
+table{ width:100%; min-width:640px; border-collapse:collapse; background:var(--color-surface); font-size:14px; }
+th,td{ text-align:left; padding:10px 14px; border-bottom:1px solid var(--color-border); }
+th{ font-family:var(--font-head); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--color-foreground-mut); }
+.sw{ display:inline-block; width:22px; height:22px; border-radius:6px; border:1px solid rgba(0,0,0,.12); vertical-align:middle; margin-right:8px; }
+.pass{ color:var(--color-success); font-weight:600; }
+.fail{ color:var(--color-error); font-weight:700; }
+.demo{ display:grid; gap:var(--sp-3); margin-bottom:var(--sp-5); }
+@media(min-width:900px){ .demo{ grid-template-columns:1fr 1fr; } }
+.demo-dark{ background:var(--color-primary); color:var(--color-on-primary); border-radius:var(--radius-lg); padding:var(--sp-4); }
+.demo-dark p{ color:var(--color-on-primary-mut); }
+.demo-dark .err{ color:var(--color-on-primary-err); font-size:14px; }
+.demo-light{ background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:var(--sp-4); }
+.demo-light p{ color:var(--color-foreground-mut); }
+.demo-light .err{ color:var(--color-error); font-size:14px; }
+.btn{ display:inline-block; font:inherit; font-family:var(--font-head); font-weight:600; padding:12px 24px; border-radius:var(--radius-pill); border:0; cursor:pointer; margin-right:8px; }
+.btn-gold{ background:var(--cta-on-dark); color:var(--cta-on-dark-text); }
+.btn-primary{ background:var(--color-accent); color:var(--color-on-accent); }
+.note{ font-size:14px; color:var(--color-foreground-mut); max-width:70ch; }
+.scale{ display:flex; gap:6px; align-items:flex-end; margin-bottom:var(--sp-4); }
+.scale i{ display:block; background:var(--color-flourish); width:20px; }
+</style>
+</head>
+<body data-palette="a">
+<div class="wrap">
+  <h1>Token foundation — swatch sheet</h1>
+  <p class="note">Every text/background pair below is computed from relative luminance at render time, not judged by eye. The rule that matters most: <code>--cta-on-dark</code> must measure ≥3:1 against the dark band with ≥4.5:1 text on it — a CTA in its normal colour almost never passes on a dark ground. Palette A ships on the funnel; B–D are complete alternates swappable as one block.</p>
+
+  <div class="picker" role="group" aria-label="Palette">
+    <button type="button" data-pal="a" aria-pressed="true">A · Lushington (live)</button>
+    <button type="button" data-pal="b" aria-pressed="false">B · Ink &amp; Brass</button>
+    <button type="button" data-pal="c" aria-pressed="false">C · Mulberry</button>
+    <button type="button" data-pal="d" aria-pressed="false">D · Deep Teal</button>
+  </div>
+
+  <h2>Contrast proof</h2>
+  <div class="table-scroll">
+    <table id="proof">
+      <thead><tr><th>Pair</th><th>Foreground</th><th>Background</th><th>Ratio</th><th>Needs</th><th>Verdict</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>Live components</h2>
+  <div class="demo">
+    <div class="demo-dark">
+      <h3>Dark band</h3>
+      <p>Body copy on the dark band uses <code>--color-on-primary-mut</code>. Icons and rules use <code>--color-flourish</code>.</p>
+      <p class="err">On-dark error text uses its twin token, not the standard error colour.</p>
+      <button type="button" class="btn btn-gold">Gold CTA on dark</button>
+    </div>
+    <div class="demo-light">
+      <h3>Surface card</h3>
+      <p>Muted copy on surface uses <code>--color-foreground-mut</code>; the primary CTA sits on light grounds.</p>
+      <p class="err">Standard error colour, proven on both background and surface.</p>
+      <button type="button" class="btn btn-primary">Primary CTA on light</button>
+    </div>
+  </div>
+
+  <h2>Rhythm &amp; radii</h2>
+  <div class="scale" aria-hidden="true">
+    <i style="height:8px"></i><i style="height:16px"></i><i style="height:24px"></i><i style="height:32px"></i><i style="height:48px"></i><i style="height:64px"></i><i style="height:80px"></i>
+  </div>
+  <p class="note">Spacing 8 · 16 · 24 · 32 · 48 · 64 · 80 on an 8pt rhythm. Radii 12 / 8 / 20 / 999. Easing: <code>cubic-bezier(.22,1,.36,1)</code> workhorse ease-out, <code>cubic-bezier(.45,0,.15,1)</code> soft ease for panels. Durations 240 / 460 / 680ms. Headings: geometric sans 600/700; body: humanist sans 400/600.</p>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  function lum(hex){
+    var c = hex.replace('#','');
+    var v = [0,2,4].map(function(i){ return parseInt(c.slice(i,i+2),16)/255; })
+      .map(function(x){ return x <= 0.04045 ? x/12.92 : Math.pow((x+0.055)/1.055, 2.4); });
+    return 0.2126*v[0] + 0.7152*v[1] + 0.0722*v[2];
+  }
+  function toHex(cssColor){
+    var m = cssColor.match(/\d+/g);
+    return '#' + m.slice(0,3).map(function(n){ return (+n).toString(16).padStart(2,'0'); }).join('');
+  }
+  function token(name){
+    var probe = document.createElement('div');
+    probe.style.color = getComputedStyle(document.body).getPropertyValue(name);
+    document.body.appendChild(probe);
+    var hex = toHex(getComputedStyle(probe).color);
+    probe.remove();
+    return hex;
+  }
+  function ratio(a,b){
+    var l1 = lum(a), l2 = lum(b);
+    var hi = Math.max(l1,l2), lo = Math.min(l1,l2);
+    return (hi+0.05)/(lo+0.05);
+  }
+  var pairs = [
+    ['on-primary / primary','--color-on-primary','--color-primary',4.5],
+    ['on-primary-mut / primary','--color-on-primary-mut','--color-primary',4.5],
+    ['on-primary / primary-dark','--color-on-primary','--color-primary-dark',4.5],
+    ['cta-on-dark / primary (UI)','--cta-on-dark','--color-primary',3],
+    ['cta-on-dark-text / cta-on-dark','--cta-on-dark-text','--cta-on-dark',4.5],
+    ['flourish / primary (UI)','--color-flourish','--color-primary',3],
+    ['on-primary-err / primary','--color-on-primary-err','--color-primary',4.5],
+    ['on-accent / accent','--color-on-accent','--color-accent',4.5],
+    ['foreground / background','--color-foreground','--color-background',4.5],
+    ['foreground / surface','--color-foreground','--color-surface',4.5],
+    ['foreground-mut / background','--color-foreground-mut','--color-background',4.5],
+    ['foreground-mut / surface','--color-foreground-mut','--color-surface',4.5],
+    ['accent / background (link)','--color-accent','--color-background',4.5],
+    ['error / surface','--color-error','--color-surface',4.5],
+    ['error / background','--color-error','--color-background',4.5],
+    ['success / surface','--color-success','--color-surface',4.5]
+  ];
+  var tbody = document.querySelector('#proof tbody');
+  function render(){
+    tbody.textContent = '';
+    pairs.forEach(function(p){
+      var fg = token(p[1]), bg = token(p[2]);
+      var r = ratio(fg,bg);
+      var ok = r >= p[3];
+      var tr = document.createElement('tr');
+      [ p[0],
+        {hex:fg}, {hex:bg},
+        r.toFixed(2) + ':1',
+        '≥' + p[3] + ':1',
+        {verdict:ok}
+      ].forEach(function(cell){
+        var td = document.createElement('td');
+        if (typeof cell === 'string'){ td.textContent = cell; }
+        else if ('hex' in cell){
+          var sw = document.createElement('span'); sw.className='sw'; sw.style.background = cell.hex;
+          td.appendChild(sw); td.appendChild(document.createTextNode(cell.hex.toUpperCase()));
+        } else {
+          td.textContent = cell.verdict ? 'PASS' : 'FAIL';
+          td.className = cell.verdict ? 'pass' : 'fail';
+        }
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+  document.querySelectorAll('.picker button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.body.setAttribute('data-palette', btn.getAttribute('data-pal'));
+      document.querySelectorAll('.picker button').forEach(function(b){
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+      render();
+    });
+  });
+  render();
+})();
+</script>
+</body>
+</html>

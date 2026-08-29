@@ -1,0 +1,23 @@
+{
+  "name": "lushington-road-dental-practice---dental-implant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clixdentalhub/Lushington-Road-Dental-Practice---Dental-Implant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Clixdentalhub/Lushington-Road-Dental-Practice---Dental-Implant/issues"
+  },
+  "homepage": "https://github.com/Clixdentalhub/Lushington-Road-Dental-Practice---Dental-Implant#readme",
+  "dependencies": {
+    "playwright-core": "^1.62.1"
+  }
+}
