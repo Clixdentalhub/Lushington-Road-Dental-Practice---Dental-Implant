@@ -401,7 +401,7 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 /* Image-on-top-of-card: media block and card body are SIBLINGS in a
    flex column — never nest the image inside the card padding. */
 .stack-card{ display:flex; flex-direction:column; }
-.stack-card .media-slot{ border-radius:var(--radius) var(--radius) 0 0; min-height:180px; }
+.stack-card .media-slot{ border-radius:var(--radius) var(--radius) 0 0; min-height:180px; max-height:220px; }
 .stack-card .card-body{
   flex:1; background:var(--color-surface); border:1px solid var(--color-border); border-top:0;
   border-radius:0 0 var(--radius) var(--radius); padding:var(--sp-3);
@@ -436,7 +436,6 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
    P4 · BEFORE / AFTER — native range drives a clip custom property
    ================================================================ */
 .ba-grid{ display:grid; gap:var(--sp-3); }
-@media (min-width:1024px){ .ba-grid{ grid-template-columns:repeat(3,1fr); } }
 .ba{ --pos:50%; }
 .ba-frame{
   position:relative; overflow:hidden; border-radius:var(--radius);
@@ -678,6 +677,9 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
           <li>Calm, modern practice</li>
           <li>5 minutes from Eastbourne station</li>
         </ul>
+        <div class="media-slot" data-file="assets/hero-consult.jpg">
+          <img src="assets/hero-consult.jpg" alt="Our implant surgeon talking a patient through a denture model at Lushington Road Dental Practice">
+        </div>
       </div>
 
       <!-- P6 · Qualifier form — Gilded Hairline -->
@@ -820,28 +822,28 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
       </div>
       <div class="card-grid cols-4">
         <div class="stack-card anim" style="--d:0ms">
-          <div class="media-slot" data-file="assets/problem-gap.jpg"></div>
+          <div class="media-slot" data-file="assets/problem-1.jpg"><img src="assets/problem-1.jpg" alt="A patient talking through his options with his dentist"></div>
           <div class="card-body">
             <h3>A gap you hide</h3>
             <p>You think twice before you smile in photos, or cover your mouth when you laugh.</p>
           </div>
         </div>
         <div class="stack-card anim" style="--d:90ms">
-          <div class="media-slot" data-file="assets/problem-failing.jpg"></div>
+          <div class="media-slot" data-file="assets/problem-2.jpg"><img src="assets/problem-2.jpg" alt="A patient checking her smile in a hand mirror with her dentist"></div>
           <div class="card-body">
             <h3>A tooth on borrowed time</h3>
             <p>A cracked, loose, or repeatedly repaired tooth your dentist has warned you about.</p>
           </div>
         </div>
         <div class="stack-card anim" style="--d:180ms">
-          <div class="media-slot" data-file="assets/problem-dentures.jpg"></div>
+          <div class="media-slot" data-file="assets/problem-3.jpg"><img src="assets/problem-3.jpg" alt="A smiling patient giving a thumbs up in the treatment chair"></div>
           <div class="card-body">
             <h3>Dentures that won't stay put</h3>
             <p>They slip, click, or need adhesive — and you've stopped ordering what you actually want to eat.</p>
           </div>
         </div>
         <div class="stack-card anim" style="--d:270ms">
-          <div class="media-slot" data-file="assets/problem-chewing.jpg"></div>
+          <div class="media-slot" data-file="assets/problem-4.jpg"><img src="assets/problem-4.jpg" alt="A relaxed patient chatting with her clinician in the treatment room"></div>
           <div class="card-body">
             <h3>Eating on one side</h3>
             <p>You've quietly adapted how you chew — and the strain shows on the teeth doing all the work.</p>
@@ -900,41 +902,19 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
     <div class="container">
       <div class="section-head center">
         <h2 id="results-heading">Real treatment, real results</h2>
-        <p>Drag the slider to compare. All photography of our own patients, shown with their permission.</p>
+        <p>Drag the slider to compare — our own patient, shown with permission.</p>
       </div>
       <div class="ba-grid">
-        <figure class="ba anim" style="--d:0ms; margin:0">
+        <figure class="ba anim" style="--d:0ms; margin:0 auto; max-width:640px; width:100%">
           <div class="ba-frame">
-            <div class="layer"><div class="media-slot" data-file="assets/before-1.jpg"></div></div>
-            <div class="layer after"><div class="media-slot" data-file="assets/after-1.jpg"></div></div>
+            <div class="layer"><div class="media-slot" data-file="assets/before-1.jpg"><img src="assets/before-1.jpg" alt="Before: a missing lower front tooth with the implant fitting in place"></div></div>
+            <div class="layer after"><div class="media-slot" data-file="assets/after-1.jpg"><img src="assets/after-1.jpg" alt="After: the completed implant tooth in place among the natural teeth"></div></div>
             <span class="ba-tag before" aria-hidden="true">Before</span>
             <span class="ba-tag after" aria-hidden="true">After</span>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal before and after comparison one">
+            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal the before and after comparison">
             <div class="ba-divider" aria-hidden="true"></div>
           </div>
-          <figcaption class="ba-caption"><span class="todo">[Case 1 — e.g. single implant replacing a failing front tooth]</span></figcaption>
-        </figure>
-        <figure class="ba anim" style="--d:90ms; margin:0">
-          <div class="ba-frame">
-            <div class="layer"><div class="media-slot" data-file="assets/before-2.jpg"></div></div>
-            <div class="layer after"><div class="media-slot" data-file="assets/after-2.jpg"></div></div>
-            <span class="ba-tag before" aria-hidden="true">Before</span>
-            <span class="ba-tag after" aria-hidden="true">After</span>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal before and after comparison two">
-            <div class="ba-divider" aria-hidden="true"></div>
-          </div>
-          <figcaption class="ba-caption"><span class="todo">[Case 2 — e.g. implants replacing a lower partial denture]</span></figcaption>
-        </figure>
-        <figure class="ba anim" style="--d:180ms; margin:0">
-          <div class="ba-frame">
-            <div class="layer"><div class="media-slot" data-file="assets/before-3.jpg"></div></div>
-            <div class="layer after"><div class="media-slot" data-file="assets/after-3.jpg"></div></div>
-            <span class="ba-tag before" aria-hidden="true">Before</span>
-            <span class="ba-tag after" aria-hidden="true">After</span>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal before and after comparison three">
-            <div class="ba-divider" aria-hidden="true"></div>
-          </div>
-          <figcaption class="ba-caption"><span class="todo">[Case 3 — e.g. implant-secured full upper denture]</span></figcaption>
+          <figcaption class="ba-caption" style="text-align:center">A failing lower front tooth replaced with a single dental implant. <span class="todo">[Practice to confirm case description]</span></figcaption>
         </figure>
       </div>
     </div>
@@ -1016,7 +996,9 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
         <h2 id="team-heading">The people treating you</h2>
         <p>UK-qualified clinicians with a minimum of 11 and up to 25 years in practice — chosen for skill and for how well they listen.</p>
       </div>
-      <div class="media-slot team-photo" data-file="assets/team-wide.jpg — wide team photo from the content shoot"></div>
+      <div class="media-slot team-photo" data-file="assets/team-outside.jpg">
+        <img src="assets/team-outside.jpg" alt="The Lushington Road Dental Practice team outside the practice">
+      </div>
       <div class="roster" role="tablist" aria-label="Choose a team member">
         <button type="button" id="roster-0" aria-controls="profile-panel" aria-expanded="true">Implant surgeon</button>
         <button type="button" id="roster-1" aria-controls="profile-panel" aria-expanded="false">Anjali Esack</button>
@@ -1046,6 +1028,9 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
         </ul>
       </div>
       <div>
+        <div class="media-slot" data-file="assets/xray-consult.jpg" style="margin-bottom:var(--sp-2); min-height:0">
+          <img src="assets/xray-consult.jpg" alt="A clinician explaining a dental X-ray on screen to a patient">
+        </div>
         <div class="callout">
           <h3>Finding us</h3>
           <p>2 Lushington Road is five minutes' walk from Eastbourne station and five minutes from the seafront. Paid parking sits right outside the practice, with free parking within a mile.</p>
