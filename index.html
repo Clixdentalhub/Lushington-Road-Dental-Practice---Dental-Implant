@@ -150,6 +150,7 @@ a{ color:var(--color-accent); }
   min-height:64px; padding-top:6px; padding-bottom:6px;
 }
 .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--color-foreground); margin-right:auto; }
+.brand img{ height:32px; width:auto; display:block; }
 .brand svg{ flex:none; }
 .brand-name{ font-family:var(--font-head); font-weight:700; font-size:18px; line-height:1.2; }
 .brand-sub{ display:block; font-size:11px; font-weight:400; letter-spacing:.14em; text-transform:uppercase; color:var(--color-foreground-mut); }
@@ -207,6 +208,14 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 }
 .band--dark .band-motion{
   position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:-1;
+}
+/* photographic bed under a dark band — plum overlay keeps text at AA */
+.band-photo{ position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:-2; }
+.band-photo img{ width:100%; height:100%; object-fit:cover; }
+.band-photo img{ filter:saturate(.75); }
+.band-photo::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgb(59,31,48) 0%, rgba(59,31,48,.97) 42%, rgba(43,21,35,.8) 100%);
 }
 /* A1 Calm Drift — blooms weighted to the base of the band, never the headline */
 .band-motion i{
@@ -457,7 +466,8 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 }
 .ba-divider::after{
   content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:34px; height:34px; border-radius:50%; background:var(--cta-on-dark);
+  width:46px; height:46px; border-radius:50%; background:var(--cta-on-dark);
+  box-shadow:0 4px 14px rgba(43,21,35,.35);
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%233B1F30' stroke-width='2.5'%3E%3Cpath d='M8 7l-5 5 5 5M16 7l5 5-5 5'/%3E%3C/svg%3E");
   background-repeat:no-repeat; background-position:center;
 }
@@ -509,8 +519,22 @@ html.can-motion .review-col:nth-child(3) .review-track.cloned{ animation:col-dow
 @media (min-width:768px){
   .journey-step:not(:last-child)::after{
     content:""; position:absolute; top:44px; left:calc(100% - var(--sp-2));
-    width:var(--sp-4); height:1px; background:var(--color-border-strong);
+    width:var(--sp-4); height:2px; background:var(--color-flourish);
   }
+}
+html.js.can-motion .journey-step::before{
+  opacity:0; transform:translateY(26px);
+  transition:opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
+  transition-delay:calc(var(--d, 0ms) + 100ms);
+}
+html.js.can-motion .journey-step.in::before{ opacity:1; transform:none; }
+@media (min-width:768px){
+  html.js.can-motion .journey-step:not(:last-child)::after{
+    transform:scaleX(0); transform-origin:0 50%;
+    transition:transform var(--dur-slow) var(--ease-out);
+    transition-delay:calc(var(--d, 0ms) + 360ms);
+  }
+  html.js.can-motion .journey-step.in:not(:last-child)::after{ transform:scaleX(1); }
 }
 .journey-step h3{ font-size:22px; }
 .journey-step p{ font-size:15px; color:var(--color-foreground-mut); }
@@ -631,11 +655,7 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
 <header class="site-header" id="site-header">
   <div class="container header-top">
     <a class="brand" href="#top" aria-label="Lushington Road Dental Practice — back to top">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="32" height="32" rx="8" stroke="#F06EAA" stroke-width="1.5"/>
-        <path d="M11 10c2-2 4-1.6 6 0 2-1.6 4-2 6 0 1.8 1.9 1.2 5-.4 8-1.3 2.4-2 6-3.4 6-1.2 0-.8-4-2.2-4s-1 4-2.2 4c-1.4 0-2.1-3.6-3.4-6-1.6-3-2.2-6.1-.4-8z" stroke="#A02D64" stroke-width="1.6" fill="none"/>
-      </svg>
-      <span class="brand-name">Lushington Road<span class="brand-sub">Dental Practice · Eastbourne</span></span>
+      <img src="assets/logo-dark.png" alt="Lushington Road Dental Practice">
     </a>
     <span class="header-phone">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
@@ -768,6 +788,7 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
 
   <!-- ============ TRUST STRIP (dark) ============ -->
   <section class="band band--dark has-cut" aria-labelledby="trust-heading">
+    <div class="band-photo" aria-hidden="true"><img src="assets/trust-bg.jpg" alt=""></div>
     <div class="band-motion" aria-hidden="true"><i></i><i></i></div>
     <div class="container">
       <h2 class="visually-hidden" id="trust-heading">Why patients choose Lushington Road Dental</h2>
@@ -1102,6 +1123,7 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
   <div class="container">
     <div class="footer-grid">
       <div>
+        <img src="assets/logo.webp" alt="Lushington Road Dental Practice" style="height:30px;width:auto;margin-bottom:14px">
         <p class="footer-tagline">Quality, honest dentistry that will make you smile.</p>
         <p>Lushington Road Dental Practice<br>2 Lushington Road, Eastbourne, East Sussex, BN21 4LL</p>
       </div>
@@ -1203,9 +1225,35 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
   document.querySelectorAll('.ba').forEach(function(ba){
     var range = ba.querySelector('.ba-range');
     range.addEventListener('input', function(){
+      ba.dataset.touched = '1';
       ba.style.setProperty('--pos', range.value + '%');
     });
   });
+  /* demo sweep on first view so the comparison is obviously draggable */
+  if ('IntersectionObserver' in window) {
+    var baIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        baIO.unobserve(en.target);
+        if (!canMotion()) return;
+        var ba = en.target;
+        var range = ba.querySelector('.ba-range');
+        var start = null, dur = 2200;
+        function sweep(ts){
+          if (ba.dataset.touched) return;
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 0.5 - 0.5 * Math.cos(p * Math.PI); /* soft in-out over the cycle */
+          var v = 50 + Math.sin(eased * Math.PI * 2) * 24;
+          range.value = v;
+          ba.style.setProperty('--pos', v + '%');
+          if (p < 1) requestAnimationFrame(sweep);
+        }
+        requestAnimationFrame(sweep);
+      });
+    }, { threshold:0.6 });
+    document.querySelectorAll('.ba').forEach(function(el){ baIO.observe(el); });
+  }
 
   /* ---- P9 · scroll progress + scroll-spy (one rAF-throttled listener) ---- */
   var progress = document.getElementById('scroll-progress');
