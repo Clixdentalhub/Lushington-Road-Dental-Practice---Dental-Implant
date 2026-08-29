@@ -82,7 +82,7 @@
   --max-w:1160px;
 }
 @media (min-width:768px){ :root{ --cut-h:96px; } }
-@media (min-width:1360px){ :root{ --header-h:92px; } }
+@media (min-width:1200px){ :root{ --header-h:92px; } }
 
 *,*::before,*::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
@@ -162,7 +162,7 @@ a{ color:var(--color-accent); }
   white-space:nowrap;
 }
 .header-phone .todo{ white-space:nowrap; }
-@media (min-width:1440px){ .header-phone{ display:inline-flex; } }
+@media (min-width:1440px){ .header-phone{ display:inline-flex; } } /* nav row splits brand/nav/actions from 1200px */
 .header-cta{ padding:11px 22px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; white-space:nowrap; }
 .cta-long{ display:none; }
 @media (min-width:560px){ .cta-long{ display:inline; } }
@@ -187,7 +187,7 @@ a{ color:var(--color-accent); }
 }
 .nav-rail a::after{
   content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
-  background:var(--color-flourish); transform:scaleX(0); transform-origin:0 50%;
+  background:var(--color-flourish); transform:scaleX(0); transform-origin:50% 50%;
   transition:transform var(--dur-fast) var(--ease-out);
 }
 .nav-rail a:hover{ color:var(--color-foreground); }
@@ -195,12 +195,12 @@ a{ color:var(--color-accent); }
 .nav-rail a[aria-current="true"]{ color:var(--color-accent); }
 .nav-rail a[aria-current="true"]::after{ transform:scaleX(1); background:var(--color-accent); }
 @media (prefers-reduced-motion:reduce){ .nav-rail a::after{ transition:none; } }
-@media (min-width:1360px){
-  .header-grid{ grid-template-areas:"nav brand actions"; min-height:84px; }
-  .brand{ padding:0; }
+@media (min-width:1200px){
+  .header-grid{ grid-template-areas:"brand nav actions"; min-height:84px; }
+  .brand{ padding:0; justify-self:start; }
   .brand img{ height:34px; }
   .nav-rail-wrap{
-    justify-self:start; border-top:0; overflow:visible;
+    justify-self:center; border-top:0; overflow:visible;
     -webkit-mask-image:none; mask-image:none;
   }
   .nav-rail{ min-width:0; width:auto; padding:0; }
