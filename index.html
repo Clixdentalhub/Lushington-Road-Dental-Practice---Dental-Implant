@@ -568,21 +568,9 @@ html.js.can-motion .journey-step.in::before{ opacity:1; transform:none; }
    TEAM roster → one profile panel
    ================================================================ */
 .team-photo{ min-height:280px; margin-bottom:var(--sp-3); }
-.roster{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:var(--sp-3); }
-.roster button{
-  font:inherit; font-size:14px; cursor:pointer; background:var(--color-surface);
-  border:1px solid var(--color-border-strong); border-radius:var(--radius-pill);
-  padding:10px 18px; color:var(--color-foreground);
-  transition:background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-}
-.roster button[aria-expanded="true"]{ background:var(--color-primary); color:var(--color-on-primary); border-color:var(--color-primary); }
-.profile-panel{
-  background:var(--color-surface); border:1px solid var(--color-border);
-  border-radius:var(--radius); padding:var(--sp-3);
-}
-.profile-panel h3{ font-size:24px; margin-bottom:2px; }
-.profile-panel .role{ font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--color-foreground-mut); display:block; margin-bottom:var(--sp-2); }
-.profile-panel p{ margin:0; font-size:15px; }
+.about-grid{ display:grid; gap:var(--sp-4); }
+@media (min-width:900px){ .about-grid{ grid-template-columns:1.1fr .9fr; } }
+.about-grid p{ font-size:16px; }
 
 /* ================================================================
    WHAT'S INCLUDED
@@ -695,7 +683,7 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
         <li><a href="#pricing">Treatments</a></li>
         <li><a href="#results">Results</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#team">Our team</a></li>
+        <li><a href="#team">About us</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
@@ -1034,25 +1022,31 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
     </div>
   </section>
 
-  <!-- ============ TEAM ============ -->
+  <!-- ============ ABOUT US ============ -->
   <section class="band" id="team" aria-labelledby="team-heading" style="background:var(--color-muted)">
     <div class="container">
       <div class="section-head">
-        <h2 id="team-heading">The people treating you</h2>
-        <p>UK-qualified clinicians with a minimum of 11 and up to 25 years in practice — chosen for skill and for how well they listen.</p>
+        <h2 id="team-heading">Caring for Eastbourne’s smiles since&nbsp;1971</h2>
+        <p>Established for over fifty years and thriving on recommendations, we’re right at the heart of Eastbourne town centre — bringing quality, caring, ethical dentistry to your doorstep.</p>
       </div>
-      <div class="media-slot team-photo" data-file="assets/team-outside.jpg">
+      <div class="media-slot team-photo anim" data-file="assets/team-outside.jpg">
         <img src="assets/team-outside.jpg" alt="The Lushington Road Dental Practice team outside the practice">
       </div>
-      <div class="roster" role="tablist" aria-label="Choose a team member">
-        <button type="button" id="roster-0" aria-controls="profile-panel" aria-expanded="true">Implant surgeon</button>
-        <button type="button" id="roster-1" aria-controls="profile-panel" aria-expanded="false">Anjali Esack</button>
-        <button type="button" id="roster-2" aria-controls="profile-panel" aria-expanded="false">Our wider team</button>
-      </div>
-      <div class="profile-panel" id="profile-panel" aria-live="polite">
-        <h3 id="profile-name"><span class="todo">[Implant surgeon name]</span></h3>
-        <span class="role" id="profile-role">Consultant in Oral &amp; Maxillofacial Surgery</span>
-        <p id="profile-bio">Our in-house implant surgeon holds a hospital consultant post in Oral &amp; Maxillofacial Surgery, and brings that level of surgical expertise to every implant placed at Lushington Road — including complex cases, difficult extractions, bone grafts, and sinus lifts. <span class="todo">[Confirm biography, GDC number, and credentials]</span></p>
+      <div class="about-grid">
+        <div class="anim" style="--d:80ms">
+          <p>What makes us different? Our team. We’re more like a family — happy to go the extra mile to make you smile, for life. We completely understand how scary and nerve-wracking visiting the dentist can be, so we’re here to make every step of the way that little bit easier for you.</p>
+          <p>And we offer more than your average high-street dentist: an in-house Maxillo-facial Surgeon for implants, difficult extractions and biopsies, cosmetic dentistry, facial aesthetics, and transparent pricing with dental plans available.</p>
+        </div>
+        <div class="anim" style="--d:160ms">
+          <div class="callout">
+            <h3>Our promise</h3>
+            <p>Our highly trained, professional and ethical team will care for you and treat you as they would family — with quality, modern dentistry that lasts. And dentistry that will make you smile.</p>
+          </div>
+          <div class="callout">
+            <h3>Easy access for everyone</h3>
+            <p>We’re on the ground floor with a purpose-built accessible toilet. If you have a disability we should know about, call us before your appointment and we’ll put suitable arrangements in place.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1164,7 +1158,8 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
       </div>
     </div>
     <div class="footer-legal">
-      <p style="margin:0 0 6px">All clinicians are registered with the General Dental Council. <span class="todo">[Add GDC registration numbers]</span> · <span class="todo">[Add CQC registration / complaints procedure link]</span></p>
+      <p style="margin:0 0 6px">All clinicians are registered with the General Dental Council. <span class="todo">[Add GDC registration numbers]</span></p>
+      <p style="margin:0 0 6px">Unhappy with anything? Let us know at reception or with your clinician, or write to <a href="mailto:info@lushingtondental.com">info@lushingtondental.com</a> — a copy of our complaints procedure is available at reception. Patient records are stored securely and never released to a third party without your express permission, unless required by law. We accept cash and all major credit and debit cards.</p>
       <p style="margin:0">Implant suitability is confirmed at your clinical assessment. Prices shown are “from” prices; your written estimate is personal to you. © <span id="year">2026</span> Lushington Road Dental Practice.</p>
     </div>
   </div>
@@ -1328,45 +1323,6 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
   }
   window.addEventListener('scroll', onScroll, { passive:true });
   onScroll();
-
-  /* ---- team roster → one profile panel ---- */
-  var profiles = [
-    { name:'[Implant surgeon name]', todoName:true,
-      role:'Consultant in Oral & Maxillofacial Surgery',
-      bio:'Our in-house implant surgeon holds a hospital consultant post in Oral & Maxillofacial Surgery, and brings that level of surgical expertise to every implant placed at Lushington Road — including complex cases, difficult extractions, bone grafts, and sinus lifts. ',
-      todoBio:'[Confirm biography, GDC number, and credentials]' },
-    { name:'Anjali Esack', todoName:false,
-      role:'Dentist · Treatment provider',
-      bio:'Anjali leads your care from first consultation to finished result — examining you, planning your treatment, and making sure you understand every option before anything is decided. ',
-      todoBio:'[Confirm biography, years qualified, and GDC number]' },
-    { name:'Our wider team', todoName:false,
-      role:'Dentists · Periodontist · Reception',
-      bio:'Every clinician at Lushington Road is UK-qualified with 11 to 25 years of experience, supported by a periodontist for gum health and a reception team who make each visit calm and unhurried. ',
-      todoBio:'[Confirm team roles and names from the practice website]' }
-  ];
-  var rosterBtns = [0,1,2].map(function(i){ return document.getElementById('roster-' + i); });
-  var pName = document.getElementById('profile-name');
-  var pRole = document.getElementById('profile-role');
-  var pBio = document.getElementById('profile-bio');
-  function setTodo(el, text, isTodo){
-    el.textContent = '';
-    if (isTodo) {
-      var s = document.createElement('span'); s.className = 'todo'; s.textContent = text; el.appendChild(s);
-    } else {
-      el.textContent = text;
-    }
-  }
-  rosterBtns.forEach(function(btn, i){
-    btn.addEventListener('click', function(){
-      rosterBtns.forEach(function(b, j){ b.setAttribute('aria-expanded', String(i === j)); });
-      var pr = profiles[i];
-      setTodo(pName, pr.name, pr.todoName);
-      pRole.textContent = pr.role;
-      pBio.textContent = pr.bio;
-      var t = document.createElement('span'); t.className = 'todo'; t.textContent = pr.todoBio;
-      pBio.appendChild(t);
-    });
-  });
 
   /* ---- FAQ accordion ---- */
   document.querySelectorAll('.faq-q').forEach(function(btn){
