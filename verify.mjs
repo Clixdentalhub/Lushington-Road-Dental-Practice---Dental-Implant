@@ -222,6 +222,25 @@ for (const page of PAGES) {
         : fail(`error lifecycle wrong (invalid=${invalidBefore}, cleared=${cleared})`);
     }
 
+    // 9b · before/after must actually swap pixels at the extremes —
+    // a stacking bug once passed every computed-style check
+    if (page === 'index.html' && width === 1280) {
+      const ba = pg.locator('.ba-frame').first();
+      await pg.evaluate(() => {
+        const el = document.querySelector('.ba');
+        el.dataset.touched = '1';
+        el.style.setProperty('--pos', '0%');
+      });
+      await pg.waitForTimeout(150);
+      const shotAfter = await ba.screenshot();
+      await pg.evaluate(() => document.querySelector('.ba').style.setProperty('--pos', '100%'));
+      await pg.waitForTimeout(150);
+      const shotBefore = await ba.screenshot();
+      !shotAfter.equals(shotBefore)
+        ? pass('before/after layers render different images')
+        : fail('before/after slider shows the same image at both extremes');
+    }
+
     // 10 · screenshot as well as measure — in a reduced-motion context so
     // every element sits in its finished state (proving that path too), with
     // the fixed header made absolute so fullPage stitching can't smear it.

@@ -82,6 +82,7 @@
   --max-w:1160px;
 }
 @media (min-width:768px){ :root{ --cut-h:96px; } }
+@media (min-width:1360px){ :root{ --header-h:92px; } }
 
 *,*::before,*::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
@@ -145,43 +146,65 @@ a{ color:var(--color-accent); }
   background:var(--color-surface);
   border-bottom:1px solid var(--color-border);
 }
-.header-top{
-  display:flex; align-items:center; gap:var(--sp-2);
-  min-height:64px; padding-top:6px; padding-bottom:6px;
+.header-grid{
+  display:grid; align-items:center; column-gap:var(--sp-2);
+  grid-template-columns:1fr auto 1fr;
+  grid-template-areas:"lead brand actions" "nav nav nav";
 }
-.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--color-foreground); margin-right:auto; }
+.brand{ grid-area:brand; justify-self:center; display:flex; align-items:center; text-decoration:none; padding:16px 0 12px; }
 .brand img{ height:32px; width:auto; display:block; }
+.header-actions{ grid-area:actions; justify-self:end; display:flex; align-items:center; gap:var(--sp-2); }
 .brand svg{ flex:none; }
 .brand-name{ font-family:var(--font-head); font-weight:700; font-size:18px; line-height:1.2; }
 .brand-sub{ display:block; font-size:11px; font-weight:400; letter-spacing:.14em; text-transform:uppercase; color:var(--color-foreground-mut); }
 .header-phone{
   display:none; align-items:center; gap:8px; font-size:14px; color:var(--color-foreground-mut);
+  white-space:nowrap;
 }
-@media (min-width:560px){ .header-phone{ display:inline-flex; } }
-.header-cta{ padding:10px 20px; font-size:14px; white-space:nowrap; }
+.header-phone .todo{ white-space:nowrap; }
+@media (min-width:1440px){ .header-phone{ display:inline-flex; } }
+.header-cta{ padding:11px 22px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; white-space:nowrap; }
 .cta-long{ display:none; }
 @media (min-width:560px){ .cta-long{ display:inline; } }
 
 /* Nav rail: width:max-content + min-width:100% so an overflowing track
    grows and scrolls instead of centre-spilling out of both sides. */
 .nav-rail-wrap{
-  overflow-x:auto; scrollbar-width:none; border-top:1px solid var(--color-border);
+  grid-area:nav; overflow-x:auto; scrollbar-width:none; border-top:1px solid var(--color-border);
   -webkit-mask-image:linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent);
           mask-image:linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent);
 }
 .nav-rail-wrap::-webkit-scrollbar{ display:none; }
 .nav-rail{
-  display:flex; gap:4px; width:max-content; min-width:100%;
-  justify-content:safe center; padding:6px var(--sp-2); margin:0; list-style:none;
+  display:flex; gap:0 20px; width:max-content; min-width:100%;
+  justify-content:safe center; padding:10px var(--sp-2); margin:0; list-style:none;
 }
 .nav-rail a{
-  display:inline-block; padding:6px 14px; border-radius:var(--radius-pill);
-  font-size:14px; text-decoration:none; color:var(--color-foreground-mut);
-  transition:background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-  white-space:nowrap;
+  position:relative; display:inline-block; padding:4px 0;
+  font-size:11px; font-weight:700; letter-spacing:.11em; text-transform:uppercase;
+  text-decoration:none; color:var(--color-foreground-mut);
+  transition:color var(--dur-fast) var(--ease-out); white-space:nowrap;
 }
-.nav-rail a:hover{ color:var(--color-foreground); background:var(--color-muted); }
-.nav-rail a[aria-current="true"]{ background:var(--color-primary); color:var(--color-on-primary); }
+.nav-rail a::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
+  background:var(--color-flourish); transform:scaleX(0); transform-origin:0 50%;
+  transition:transform var(--dur-fast) var(--ease-out);
+}
+.nav-rail a:hover{ color:var(--color-foreground); }
+.nav-rail a:hover::after{ transform:scaleX(1); }
+.nav-rail a[aria-current="true"]{ color:var(--color-accent); }
+.nav-rail a[aria-current="true"]::after{ transform:scaleX(1); background:var(--color-accent); }
+@media (prefers-reduced-motion:reduce){ .nav-rail a::after{ transition:none; } }
+@media (min-width:1360px){
+  .header-grid{ grid-template-areas:"nav brand actions"; min-height:84px; }
+  .brand{ padding:0; }
+  .brand img{ height:34px; }
+  .nav-rail-wrap{
+    justify-self:start; border-top:0; overflow:visible;
+    -webkit-mask-image:none; mask-image:none;
+  }
+  .nav-rail{ min-width:0; width:auto; padding:0; }
+}
 
 /* Progress bar painted over the header's own bottom border — costs no height */
 .scroll-progress{
@@ -450,7 +473,9 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
   position:relative; overflow:hidden; border-radius:var(--radius);
   aspect-ratio:4/3; background:var(--color-muted);
 }
-.ba-frame .layer{ position:absolute; inset:0; }
+/* isolate each layer: the slot-fallback img carries z-index:1, which would
+   otherwise lift the BEFORE image above the whole after layer */
+.ba-frame .layer{ position:absolute; inset:0; isolation:isolate; }
 .ba-frame .layer.after{ clip-path:inset(0 0 0 var(--pos)); }
 .ba-frame .layer .media-slot{ position:absolute; inset:0; border-radius:0; min-height:0; }
 .ba-frame .layer.after .media-slot{ background:#F5E3EC; }
@@ -653,26 +678,28 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
 
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="site-header">
-  <div class="container header-top">
+  <div class="container header-grid">
     <a class="brand" href="#top" aria-label="Lushington Road Dental Practice — back to top">
       <img src="assets/logo-dark.png" alt="Lushington Road Dental Practice">
     </a>
-    <span class="header-phone">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
-      <span class="todo">[01323 000 000]</span>
-    </span>
-    <a class="btn btn-primary header-cta" href="#book"><span>Book<span class="cta-long">&nbsp;consultation</span></span></a>
+    <div class="header-actions">
+      <span class="header-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+        <span class="todo">[01323 000 000]</span>
+      </span>
+      <a class="btn btn-primary header-cta" href="#book"><span>Book<span class="cta-long">&nbsp;consultation</span></span></a>
+    </div>
+    <nav class="nav-rail-wrap" aria-label="Page sections">
+      <ul class="nav-rail" id="nav-rail">
+        <li><a href="#why">Is this you?</a></li>
+        <li><a href="#pricing">Treatments</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#team">Our team</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav class="nav-rail-wrap" aria-label="Page sections">
-    <ul class="nav-rail" id="nav-rail">
-      <li><a href="#why">Is this you?</a></li>
-      <li><a href="#pricing">Treatments</a></li>
-      <li><a href="#results">Results</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#team">Our team</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-  </nav>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 </header>
 
