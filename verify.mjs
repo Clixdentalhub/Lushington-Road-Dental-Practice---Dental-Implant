@@ -25,6 +25,14 @@ const browser = await chromium.launch({
   executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
 });
 
+const stubNetwork = (pg) =>
+  pg.route(/^https?:\/\//, (r) => {
+    const type = r.request().resourceType();
+    if (type === 'stylesheet') return r.fulfill({ body: '', contentType: 'text/css' });
+    if (type === 'document') return r.fulfill({ body: '<html></html>', contentType: 'text/html' });
+    return r.fulfill({ body: '', contentType: 'text/plain' });
+  });
+
 for (const page of PAGES) {
   for (const width of WIDTHS) {
     const ctx = await browser.newContext({
@@ -41,8 +49,9 @@ for (const page of PAGES) {
       }
     });
     pg.on('pageerror', (e) => pageErrors.push(String(e)));
-    // The Google Maps iframe needs network; stub it so offline runs stay clean.
-    await pg.route('**://www.google.com/**', (r) => r.fulfill({ body: '<html></html>', contentType: 'text/html' }));
+    // Stub all network (maps iframe, Google Fonts) so offline runs are
+    // deterministic and never hang on the egress proxy.
+    await stubNetwork(pg);
 
     await pg.goto(pathToFileURL(join(root, page)).href, { waitUntil: 'load' });
     await pg.waitForTimeout(400);
@@ -222,7 +231,7 @@ for (const page of PAGES) {
         reducedMotion: 'reduce',
       });
       const rmPg = await rmCtx.newPage();
-      await rmPg.route('**://www.google.com/**', (r) => r.fulfill({ body: '<html></html>', contentType: 'text/html' }));
+      await stubNetwork(rmPg);
       await rmPg.goto(pathToFileURL(join(root, page)).href, { waitUntil: 'load' });
       await rmPg.addStyleTag({ content: '.site-header{position:absolute !important} .sticky-bar{display:none !important}' });
       await rmPg.waitForTimeout(300);

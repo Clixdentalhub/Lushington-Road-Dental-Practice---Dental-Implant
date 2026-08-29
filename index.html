@@ -7,6 +7,9 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Dental Implants Eastbourne | Lushington Road Dental Practice</title>
 <meta name="description" content="Dental implants in Eastbourne, placed by our in-house implant surgeon — a hospital Consultant in Oral &amp; Maxillofacial Surgery. Complimentary consultation with OPG X-ray.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@400;600;700&display=swap">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,34 +44,34 @@
    labs/tokens.html with relative-luminance maths — not by eye.
    ================================================================ */
 :root{
-  --color-primary:#1F332A;        /* dark band */
-  --color-primary-dark:#16261F;
-  --color-on-primary:#F7F3EA;     /* 12.12:1 on primary */
-  --color-on-primary-mut:#C9D2CB; /* 8.67:1 on primary */
-  --color-secondary:#8FA697;
-  --color-accent:#2C4A3B;         /* CTA on light grounds */
-  --color-accent-dark:#233B2F;
-  --color-on-accent:#F7F3EA;      /* 8.82:1 on accent */
-  --cta-on-dark:#D3B26A;          /* gold · 6.61:1 vs primary (≥3 UI) */
-  --cta-on-dark-text:#1F332A;     /* 6.61:1 on gold */
-  --color-flourish:#C2A25B;       /* gold icons/rules on dark · 5.50:1 */
-  --color-on-primary-err:#F1A79E; /* on-dark error twin · 6.88:1 */
-  --color-background:#F6F2EA;     /* warm beige ground */
+  --color-primary:#3B1F30;        /* dark band */
+  --color-primary-dark:#2B1523;
+  --color-on-primary:#FBF4F7;     /* 12.12:1 on primary */
+  --color-on-primary-mut:#DCC3D0; /* 8.67:1 on primary */
+  --color-secondary:#C48BA6;
+  --color-accent:#A02D64;         /* CTA on light grounds */
+  --color-accent-dark:#83244F;
+  --color-on-accent:#FBF4F7;      /* 8.82:1 on accent */
+  --cta-on-dark:#F06EAA;          /* gold · 6.61:1 vs primary (≥3 UI) */
+  --cta-on-dark-text:#3B1F30;     /* 6.61:1 on gold */
+  --color-flourish:#F06EAA;       /* gold icons/rules on dark · 5.50:1 */
+  --color-on-primary-err:#F4A9B4; /* on-dark error twin · 6.88:1 */
+  --color-background:#FAF3F5;     /* warm beige ground */
   --color-surface:#FFFFFF;
-  --color-foreground:#22302A;     /* 12.34:1 on background */
-  --color-foreground-mut:#54635B; /* 5.68:1 on background */
-  --color-muted:#EDE7DB;
-  --color-border:#E2DCCE;
-  --color-border-strong:#C9C0AC;
+  --color-foreground:#33222C;     /* 12.34:1 on background */
+  --color-foreground-mut:#6B5260; /* 5.68:1 on background */
+  --color-muted:#F3E4EA;
+  --color-border:#EBD9E1;
+  --color-border-strong:#D3B9C6;
   --color-success:#2E6B4F;
-  --color-error:#A63B32;          /* 5.71:1 on background */
-  --color-star:#C2A25B;
+  --color-error:#B03038;          /* 5.71:1 on background */
+  --color-star:#D9A662;
 
   --radius:12px; --radius-sm:8px; --radius-lg:20px; --radius-pill:999px;
   --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px; --sp-5:48px; --sp-6:64px; --sp-7:80px;
 
-  --font-head:"Avenir Next","Century Gothic","Futura","Segoe UI",system-ui,sans-serif;
-  --font-body:"Seravek","Gill Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-head:"Cormorant Garamond","Playfair Display",Georgia,"Times New Roman",serif;
+  --font-body:"Mulish","Seravek","Gill Sans","Segoe UI",system-ui,-apple-system,sans-serif;
 
   --ease-out:cubic-bezier(.22,1,.36,1);
   --ease-soft:cubic-bezier(.45,0,.15,1);
@@ -79,7 +82,6 @@
   --max-w:1160px;
 }
 @media (min-width:768px){ :root{ --cut-h:96px; } }
-@media (min-width:1200px){ :root{ --header-h:76px; } }
 
 *,*::before,*::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
@@ -89,7 +91,7 @@ body{
   background:var(--color-background); font-size:16px; line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3,h4{ font-family:var(--font-head); font-weight:700; line-height:1.15; margin:0 0 var(--sp-2); text-wrap:balance; }
+h1,h2,h3,h4{ font-family:var(--font-head); font-weight:600; line-height:1.12; margin:0 0 var(--sp-2); text-wrap:balance; }
 p{ margin:0 0 var(--sp-2); text-wrap:pretty; }
 img{ max-width:100%; display:block; }
 a{ color:var(--color-accent); }
@@ -121,16 +123,16 @@ a{ color:var(--color-accent); }
    ================================================================ */
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  font-family:var(--font-head); font-weight:600; font-size:16px;
+  font-family:var(--font-body); font-weight:700; font-size:15px; letter-spacing:.02em;
   padding:14px 26px; border-radius:var(--radius-pill); border:0; cursor:pointer;
   text-decoration:none; transition:transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
 }
 .btn svg{ flex:none; transition:transform var(--dur-fast) var(--ease-out); }
 .btn:hover svg{ transform:translateX(4px); }
 .btn-primary{ background:var(--color-accent); color:var(--color-on-accent); }
-.btn-primary:hover{ background:var(--color-accent-dark); transform:translateY(-2px); box-shadow:0 8px 20px rgba(31,51,42,.22); }
+.btn-primary:hover{ background:var(--color-accent-dark); transform:translateY(-2px); box-shadow:0 8px 20px rgba(59,31,48,.22); }
 .btn-gold{ background:var(--cta-on-dark); color:var(--cta-on-dark-text); }
-.btn-gold:hover{ background:#DEC084; transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.28); }
+.btn-gold:hover{ background:#F8A5C8; transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.28); }
 .btn:focus-visible, a:focus-visible, button:focus-visible{
   outline:3px solid var(--cta-on-dark); outline-offset:2px;
 }
@@ -149,7 +151,7 @@ a{ color:var(--color-accent); }
 }
 .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--color-foreground); margin-right:auto; }
 .brand svg{ flex:none; }
-.brand-name{ font-family:var(--font-head); font-weight:700; font-size:15px; line-height:1.2; }
+.brand-name{ font-family:var(--font-head); font-weight:700; font-size:18px; line-height:1.2; }
 .brand-sub{ display:block; font-size:11px; font-weight:400; letter-spacing:.14em; text-transform:uppercase; color:var(--color-foreground-mut); }
 .header-phone{
   display:none; align-items:center; gap:8px; font-size:14px; color:var(--color-foreground-mut);
@@ -179,11 +181,6 @@ a{ color:var(--color-accent); }
 }
 .nav-rail a:hover{ color:var(--color-foreground); background:var(--color-muted); }
 .nav-rail a[aria-current="true"]{ background:var(--color-primary); color:var(--color-on-primary); }
-@media (min-width:1200px){
-  .header-top{ min-height:75px; }
-  .nav-rail-wrap{ position:absolute; left:50%; top:0; transform:translateX(-50%); border-top:0; mask-image:none; -webkit-mask-image:none; overflow:visible; }
-  .nav-rail{ min-width:0; padding:0; height:75px; align-items:center; }
-}
 
 /* Progress bar painted over the header's own bottom border — costs no height */
 .scroll-progress{
@@ -217,12 +214,12 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 }
 .band-motion i:first-child{
   width:520px; height:340px; left:-160px; bottom:-180px;
-  background:radial-gradient(closest-side, rgba(194,162,91,.55), transparent 70%);
+  background:radial-gradient(closest-side, rgba(240,110,170,.55), transparent 70%);
   animation:drift-a 26s var(--ease-soft) infinite alternate;
 }
 .band-motion i:last-child{
   width:620px; height:380px; right:-200px; bottom:-220px;
-  background:radial-gradient(closest-side, rgba(44,74,59,.9), transparent 70%);
+  background:radial-gradient(closest-side, rgba(131,36,79,.9), transparent 70%);
   animation:drift-b 31s var(--ease-soft) infinite alternate;
 }
 @keyframes drift-a{ from{ transform:translate(0,0); } to{ transform:translate(90px,-40px); } }
@@ -251,7 +248,7 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
   color:var(--color-accent); margin-bottom:var(--sp-2);
 }
 .eyebrow::before{ content:""; width:28px; height:2px; background:var(--color-flourish); }
-.hero h1{ font-size:clamp(30px, 6vw, 46px); }
+.hero h1{ font-size:clamp(37px, 7vw, 58px); font-weight:600; }
 .hero .sub{ font-size:18px; color:var(--color-foreground-mut); max-width:56ch; }
 .ticks{ list-style:none; margin:var(--sp-3) 0; padding:0; display:grid; gap:12px; }
 .ticks li{ display:flex; gap:12px; align-items:flex-start; }
@@ -262,7 +259,7 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
   border-left:3px solid var(--color-flourish); background:var(--color-surface);
   border-radius:0 var(--radius) var(--radius) 0;
 }
-.anchor-fig strong{ font-family:var(--font-head); font-size:26px; }
+.anchor-fig strong{ font-family:var(--font-head); font-size:31px; font-weight:700; }
 .anchor-fig span{ color:var(--color-foreground-mut); font-size:15px; }
 .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:var(--sp-3); padding:0; list-style:none; }
 .chips li{
@@ -281,7 +278,7 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
   content:attr(data-file);
   position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   font-size:13px; letter-spacing:.06em; color:var(--color-foreground-mut);
-  background:repeating-linear-gradient(45deg, transparent 0 14px, rgba(34,48,42,.05) 14px 28px);
+  background:repeating-linear-gradient(45deg, transparent 0 14px, rgba(51,34,44,.05) 14px 28px);
   text-align:center; padding:var(--sp-2);
 }
 .media-slot img{ position:relative; z-index:1; width:100%; height:100%; object-fit:cover; color:transparent; }
@@ -292,18 +289,18 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 .form-card{
   background:var(--color-surface); border:1px solid var(--color-border);
   border-radius:var(--radius-lg); padding:var(--sp-3);
-  box-shadow:0 20px 50px rgba(34,48,42,.10);
+  box-shadow:0 20px 50px rgba(59,31,48,.10);
 }
 @media (min-width:768px){ .form-card{ padding:var(--sp-4); } }
 .form-rule{
   height:2px; border:0; margin:0 0 var(--sp-3);
-  background:linear-gradient(90deg, var(--color-flourish), rgba(194,162,91,.12));
+  background:linear-gradient(90deg, var(--color-flourish), rgba(240,110,170,.12));
 }
 .step-counter{
   font-size:12px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
   color:var(--color-foreground-mut); margin-bottom:6px; font-variant-caps:all-small-caps;
 }
-.form-card h2{ font-size:22px; margin-bottom:4px; }
+.form-card h2{ font-size:27px; margin-bottom:4px; }
 .form-note{ font-size:14px; color:var(--color-foreground-mut); }
 .progress-track{
   display:flex; gap:6px; margin:var(--sp-2) 0 var(--sp-3);
@@ -315,7 +312,7 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 .progress-track i.done{ background:var(--color-flourish); }
 
 .q-step[hidden]{ display:none; }
-.q-legend{ font-family:var(--font-head); font-weight:600; font-size:17px; padding:0; margin:0 0 var(--sp-2); }
+.q-legend{ font-family:var(--font-head); font-weight:700; font-size:21px; padding:0; margin:0 0 var(--sp-2); }
 .q-list{ display:block; border-top:1px solid var(--color-border); }
 .q-option{ position:relative; display:block; border-bottom:1px solid var(--color-border); }
 .q-option input{ position:absolute; opacity:0; inset:0; margin:0; cursor:pointer; }
@@ -324,8 +321,8 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
   transition:background-color var(--dur-fast) var(--ease-out), padding-left var(--dur-fast) var(--ease-out);
 }
 .q-option .chev{ margin-left:auto; opacity:0; transform:translateX(-8px); transition:opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
-.q-option:hover .row{ background:rgba(194,162,91,.07); padding-left:12px; }
-.q-option input:checked ~ .row{ background:rgba(194,162,91,.12); padding-left:12px; }
+.q-option:hover .row{ background:rgba(240,110,170,.07); padding-left:12px; }
+.q-option input:checked ~ .row{ background:rgba(240,110,170,.12); padding-left:12px; }
 .q-option input:checked ~ .row .chev{ opacity:1; transform:none; }
 .q-option input:focus-visible ~ .row{ outline:3px solid var(--cta-on-dark); outline-offset:-3px; border-radius:var(--radius-sm); }
 .q-dot{
@@ -375,16 +372,16 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 .trust-grid{ display:grid; gap:var(--sp-3); }
 @media (min-width:768px){ .trust-grid{ grid-template-columns:repeat(4,1fr); gap:var(--sp-4); } }
 .trust-item svg{ margin-bottom:10px; }
-.trust-item h3{ font-size:16px; margin-bottom:6px; color:var(--color-on-primary); }
+.trust-item h3{ font-size:21px; margin-bottom:6px; color:var(--color-on-primary); }
 .trust-item p{ font-size:14px; color:var(--color-on-primary-mut); margin:0; }
 
 .stat-strip{
   display:grid; gap:var(--sp-3); text-align:center;
   grid-template-columns:repeat(2,1fr); margin-top:var(--sp-5);
-  padding-top:var(--sp-4); border-top:1px solid rgba(194,162,91,.35);
+  padding-top:var(--sp-4); border-top:1px solid rgba(240,110,170,.35);
 }
 @media (min-width:768px){ .stat-strip{ grid-template-columns:repeat(4,1fr); } }
-.stat-strip strong{ display:block; font-family:var(--font-head); font-size:34px; color:var(--cta-on-dark); }
+.stat-strip strong{ display:block; font-family:var(--font-head); font-weight:700; font-size:40px; color:var(--cta-on-dark); }
 .stat-strip strong span{ font-size:inherit; color:inherit; }
 .stat-strip dd > span{ font-size:13px; color:var(--color-on-primary-mut); }
 
@@ -393,7 +390,7 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
    ================================================================ */
 .section-head{ max-width:640px; margin-bottom:var(--sp-4); }
 .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
-.section-head h2{ font-size:clamp(26px, 4.6vw, 36px); }
+.section-head h2{ font-size:clamp(31px, 5.4vw, 44px); }
 .section-head p{ color:var(--color-foreground-mut); }
 .band--dark .section-head p{ color:var(--color-on-primary-mut); }
 
@@ -409,7 +406,7 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
   flex:1; background:var(--color-surface); border:1px solid var(--color-border); border-top:0;
   border-radius:0 0 var(--radius) var(--radius); padding:var(--sp-3);
 }
-.stack-card h3{ font-size:18px; }
+.stack-card h3{ font-size:22px; }
 .stack-card p{ font-size:15px; color:var(--color-foreground-mut); margin:0; }
 
 /* ================================================================
@@ -427,8 +424,8 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
   font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
   padding:5px 14px; border-radius:var(--radius-pill);
 }
-.price-card h3{ font-size:20px; }
-.price-card .price{ font-family:var(--font-head); font-size:32px; font-weight:700; margin-bottom:4px; }
+.price-card h3{ font-size:25px; }
+.price-card .price{ font-family:var(--font-head); font-size:38px; font-weight:700; margin-bottom:4px; }
 .price-card .price small{ font-size:15px; font-weight:400; color:var(--color-foreground-mut); }
 .price-card ul{ list-style:none; margin:var(--sp-2) 0 var(--sp-3); padding:0; display:grid; gap:10px; flex:1; }
 .price-card li{ display:flex; gap:10px; font-size:15px; align-items:flex-start; }
@@ -448,7 +445,7 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 .ba-frame .layer{ position:absolute; inset:0; }
 .ba-frame .layer.after{ clip-path:inset(0 0 0 var(--pos)); }
 .ba-frame .layer .media-slot{ position:absolute; inset:0; border-radius:0; min-height:0; }
-.ba-frame .layer.after .media-slot{ background:#DDE4DD; }
+.ba-frame .layer.after .media-slot{ background:#F5E3EC; }
 .ba-tag{
   position:absolute; top:10px; z-index:2; font-size:11px; font-weight:600;
   letter-spacing:.12em; text-transform:uppercase; padding:4px 10px;
@@ -462,7 +459,7 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 .ba-divider::after{
   content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   width:34px; height:34px; border-radius:50%; background:var(--cta-on-dark);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%231F332A' stroke-width='2.5'%3E%3Cpath d='M8 7l-5 5 5 5M16 7l5 5-5 5'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%233B1F30' stroke-width='2.5'%3E%3Cpath d='M8 7l-5 5 5 5M16 7l5 5-5 5'/%3E%3C/svg%3E");
   background-repeat:no-repeat; background-position:center;
 }
 .ba-range{
@@ -507,7 +504,7 @@ html.can-motion .review-col:nth-child(3) .review-track.cloned{ animation:col-dow
 .journey-step{ position:relative; padding-top:var(--sp-2); }
 .journey-step::before{
   counter-increment:step; content:counter(step, decimal-leading-zero);
-  font-family:var(--font-head); font-weight:700; font-size:44px;
+  font-family:var(--font-head); font-weight:700; font-size:50px;
   color:var(--color-flourish); display:block; margin-bottom:var(--sp-1); line-height:1;
 }
 @media (min-width:768px){
@@ -516,7 +513,7 @@ html.can-motion .review-col:nth-child(3) .review-track.cloned{ animation:col-dow
     width:var(--sp-4); height:1px; background:var(--color-border-strong);
   }
 }
-.journey-step h3{ font-size:18px; }
+.journey-step h3{ font-size:22px; }
 .journey-step p{ font-size:15px; color:var(--color-foreground-mut); }
 
 /* ================================================================
@@ -535,7 +532,7 @@ html.can-motion .review-col:nth-child(3) .review-track.cloned{ animation:col-dow
   background:var(--color-surface); border:1px solid var(--color-border);
   border-radius:var(--radius); padding:var(--sp-3);
 }
-.profile-panel h3{ font-size:19px; margin-bottom:2px; }
+.profile-panel h3{ font-size:24px; margin-bottom:2px; }
 .profile-panel .role{ font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--color-foreground-mut); display:block; margin-bottom:var(--sp-2); }
 .profile-panel p{ margin:0; font-size:15px; }
 
@@ -552,7 +549,7 @@ html.can-motion .review-col:nth-child(3) .review-track.cloned{ animation:col-dow
   border-left:3px solid var(--color-flourish); border-radius:var(--radius-sm);
   padding:var(--sp-3); margin-bottom:var(--sp-2);
 }
-.callout h3{ font-size:16px; margin-bottom:6px; }
+.callout h3{ font-size:20px; margin-bottom:6px; }
 .callout p{ font-size:14px; color:var(--color-foreground-mut); margin:0; }
 
 /* ================================================================
@@ -564,7 +561,7 @@ html.can-motion .review-col:nth-child(3) .review-track.cloned{ animation:col-dow
 .faq-q{
   width:100%; display:flex; align-items:center; gap:var(--sp-2); text-align:left;
   background:none; border:0; cursor:pointer; font:inherit;
-  font-family:var(--font-head); font-weight:600; font-size:17px; color:var(--color-foreground);
+  font-family:var(--font-head); font-weight:700; font-size:21px; color:var(--color-foreground);
   padding:18px 4px;
 }
 .faq-q svg{ flex:none; margin-left:auto; transition:transform var(--dur-fast) var(--ease-out); }
@@ -581,7 +578,7 @@ html.can-motion .review-col:nth-child(3) .review-track.cloned{ animation:col-dow
 .address-list{ list-style:none; margin:var(--sp-3) 0; padding:0; display:grid; gap:12px; font-size:15px; color:var(--color-on-primary-mut); }
 .address-list li{ display:flex; gap:12px; align-items:flex-start; }
 .address-list svg{ flex:none; margin-top:3px; }
-.map-frame{ border-radius:var(--radius); overflow:hidden; border:1px solid rgba(194,162,91,.4); }
+.map-frame{ border-radius:var(--radius); overflow:hidden; border:1px solid rgba(240,110,170,.4); }
 .map-frame iframe{ display:block; width:100%; height:320px; border:0; }
 
 /* ================================================================
@@ -595,8 +592,8 @@ html.can-motion .review-col:nth-child(3) .review-track.cloned{ animation:col-dow
 .site-footer a{ color:var(--color-on-primary); }
 .footer-grid{ display:grid; gap:var(--sp-3); }
 @media (min-width:768px){ .footer-grid{ grid-template-columns:2fr 1fr 1fr; gap:var(--sp-5); } }
-.footer-tagline{ font-family:var(--font-head); color:var(--cta-on-dark); font-size:16px; margin-bottom:var(--sp-2); }
-.footer-legal{ margin-top:var(--sp-4); padding-top:var(--sp-3); border-top:1px solid rgba(201,210,203,.2); font-size:12px; }
+.footer-tagline{ font-family:var(--font-head); color:var(--cta-on-dark); font-size:22px; margin-bottom:var(--sp-2); }
+.footer-legal{ margin-top:var(--sp-4); padding-top:var(--sp-3); border-top:1px solid rgba(220,195,208,.2); font-size:12px; }
 
 .sticky-bar{
   position:fixed; left:0; right:0; bottom:0; z-index:40;
@@ -636,8 +633,8 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
   <div class="container header-top">
     <a class="brand" href="#top" aria-label="Lushington Road Dental Practice — back to top">
       <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="32" height="32" rx="8" stroke="#C2A25B" stroke-width="1.5"/>
-        <path d="M11 10c2-2 4-1.6 6 0 2-1.6 4-2 6 0 1.8 1.9 1.2 5-.4 8-1.3 2.4-2 6-3.4 6-1.2 0-.8-4-2.2-4s-1 4-2.2 4c-1.4 0-2.1-3.6-3.4-6-1.6-3-2.2-6.1-.4-8z" stroke="#2C4A3B" stroke-width="1.6" fill="none"/>
+        <rect x="1" y="1" width="32" height="32" rx="8" stroke="#F06EAA" stroke-width="1.5"/>
+        <path d="M11 10c2-2 4-1.6 6 0 2-1.6 4-2 6 0 1.8 1.9 1.2 5-.4 8-1.3 2.4-2 6-3.4 6-1.2 0-.8-4-2.2-4s-1 4-2.2 4c-1.4 0-2.1-3.6-3.4-6-1.6-3-2.2-6.1-.4-8z" stroke="#A02D64" stroke-width="1.6" fill="none"/>
       </svg>
       <span class="brand-name">Lushington Road<span class="brand-sub">Dental Practice · Eastbourne</span></span>
     </a>
@@ -645,7 +642,7 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
       <span class="todo">[01323 000 000]</span>
     </span>
-    <a class="btn btn-primary header-cta" href="#book">Book<span class="cta-long">&nbsp;consultation</span></a>
+    <a class="btn btn-primary header-cta" href="#book"><span>Book<span class="cta-long">&nbsp;consultation</span></span></a>
   </div>
   <nav class="nav-rail-wrap" aria-label="Page sections">
     <ul class="nav-rail" id="nav-rail">
@@ -670,10 +667,10 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
         <h1 id="hero-headline">Dental implants, placed by a consultant&nbsp;surgeon</h1>
         <p class="sub">If you're living with a missing tooth, a failing tooth, or dentures that won't stay secure, implants may be a permanent, natural-feeling answer. At Lushington Road Dental, implant care is delivered with hospital-level skill in a calm Eastbourne practice.</p>
         <ul class="ticks">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Implants placed by our in-house implant surgeon — a hospital Consultant in Oral &amp; Maxillofacial&nbsp;Surgery</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Complimentary consultation including an <span class="nowrap">OPG X-ray</span> to assess your&nbsp;suitability</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Clear written pricing before you decide — no pressure, no&nbsp;upselling</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Implant-secured denture options if your dentures slip, click, or need&nbsp;adhesive</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Implants placed by our in-house implant surgeon — a hospital Consultant in Oral &amp; Maxillofacial&nbsp;Surgery</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Complimentary consultation including an <span class="nowrap">OPG X-ray</span> to assess your&nbsp;suitability</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Clear written pricing before you decide — no pressure, no&nbsp;upselling</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Implant-secured denture options if your dentures slip, click, or need&nbsp;adhesive</span></li>
         </ul>
         <p class="anchor-fig"><strong>From £2,950</strong><span>per single implant · complimentary consultation &amp; <span class="nowrap">OPG X-ray</span> included</span></p>
         <ul class="chips">
@@ -705,10 +702,10 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
           <fieldset class="q-step" data-step="1" style="border:0;padding:0;margin:0">
             <legend class="q-legend">Which of these sounds most like you?</legend>
             <div class="q-list" role="radiogroup" aria-label="Your situation">
-              <label class="q-option"><input type="radio" name="situation" value="Missing tooth or teeth"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>I have a missing tooth or teeth</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="situation" value="Failing or loose tooth"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>I have a failing or loose tooth</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="situation" value="Dentures that slip"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>My dentures slip or need adhesive</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="situation" value="Exploring options"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>I'm exploring my options</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
+              <label class="q-option"><input type="radio" name="situation" value="Missing tooth or teeth"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>I have a missing tooth or teeth</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
+              <label class="q-option"><input type="radio" name="situation" value="Failing or loose tooth"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>I have a failing or loose tooth</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
+              <label class="q-option"><input type="radio" name="situation" value="Dentures that slip"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>My dentures slip or need adhesive</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
+              <label class="q-option"><input type="radio" name="situation" value="Exploring options"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>I'm exploring my options</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
             </div>
             <p class="step-error" id="err-step-1" role="alert">Please choose the option closest to your situation.</p>
           </fieldset>
@@ -716,10 +713,10 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
           <fieldset class="q-step" data-step="2" hidden style="border:0;padding:0;margin:0">
             <legend class="q-legend">When would you like to start treatment?</legend>
             <div class="q-list" role="radiogroup" aria-label="Treatment timing">
-              <label class="q-option"><input type="radio" name="timing" value="As soon as possible"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>As soon as possible</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="timing" value="Within 1-3 months"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>Within 1–3 months</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="timing" value="In 3+ months"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>In three months or more</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="timing" value="Just researching"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>Just researching for now</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
+              <label class="q-option"><input type="radio" name="timing" value="As soon as possible"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>As soon as possible</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
+              <label class="q-option"><input type="radio" name="timing" value="Within 1-3 months"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>Within 1–3 months</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
+              <label class="q-option"><input type="radio" name="timing" value="In 3+ months"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>In three months or more</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
+              <label class="q-option"><input type="radio" name="timing" value="Just researching"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>Just researching for now</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
             </div>
             <p class="step-error" id="err-step-2" role="alert">Please choose when you'd like to start.</p>
           </fieldset>
@@ -781,22 +778,22 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
       <h2 class="visually-hidden" id="trust-heading">Why patients choose Lushington Road Dental</h2>
       <div class="trust-grid">
         <div class="trust-item anim" style="--d:0ms">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="1.7" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 8.1-7 9-4-.9-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4.5"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="1.7" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 8.1-7 9-4-.9-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4.5"/></svg>
           <h3>Consultant-level surgery</h3>
           <p>Your implant is placed by our in-house surgeon, a hospital Consultant in Oral &amp; Maxillofacial Surgery.</p>
         </div>
         <div class="trust-item anim" style="--d:90ms">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
           <h3>Experience you can check</h3>
           <p>Every clinician is UK-qualified with between 11 and 25 years in practice.</p>
         </div>
         <div class="trust-item anim" style="--d:180ms">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="1.7" aria-hidden="true"><path d="M4 19V8.5L12 3l8 5.5V19"/><path d="M9 19v-6h6v6"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="1.7" aria-hidden="true"><path d="M4 19V8.5L12 3l8 5.5V19"/><path d="M9 19v-6h6v6"/></svg>
           <h3>A calm, honest setting</h3>
           <p>Quality, ethical dentistry in a modern, relaxed environment — never a hard sell.</p>
         </div>
         <div class="trust-item anim" style="--d:270ms">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h4"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h4"/></svg>
           <h3>Everything in writing</h3>
           <p>A full treatment plan and printed estimate to take home before you decide anything.</p>
         </div>
@@ -871,9 +868,9 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
           <h3>Single dental implant</h3>
           <p class="price">from £2,950</p>
           <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Placed by our in-house consultant implant surgeon</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>A permanent, natural-feeling replacement for a missing or failing tooth</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Good-quality materials as standard — no cut corners</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Placed by our in-house consultant implant surgeon</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>A permanent, natural-feeling replacement for a missing or failing tooth</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Good-quality materials as standard — no cut corners</span></li>
           </ul>
           <a class="btn btn-primary" href="#book">Check your suitability</a>
         </div>
@@ -881,9 +878,9 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
           <h3>Implant-secured dentures</h3>
           <p class="price">£3,000–£5,000</p>
           <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Dentures held firmly by implants — eat and laugh without thinking about them</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Planned around your clinical needs, comfort, and long-term function</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Standard dentures also available, £1,500–£2,500</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Dentures held firmly by implants — eat and laugh without thinking about them</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Planned around your clinical needs, comfort, and long-term function</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Standard dentures also available, £1,500–£2,500</span></li>
           </ul>
           <a class="btn btn-primary" href="#book">Ask about secured dentures</a>
         </div>
@@ -891,9 +888,9 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
           <h3>Preparatory treatment</h3>
           <p class="price">from £750 <small>where clinically needed</small></p>
           <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Bone graft £750 — rebuilds support where bone has receded</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Sinus lift £1,450 — for upper implants needing extra height</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Only recommended when your <span class="nowrap">OPG X-ray</span> shows it's genuinely required</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Bone graft £750 — rebuilds support where bone has receded</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Sinus lift £1,450 — for upper implants needing extra height</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Only recommended when your <span class="nowrap">OPG X-ray</span> shows it's genuinely required</span></li>
           </ul>
           <a class="btn btn-primary" href="#book">Book your assessment</a>
         </div>
@@ -956,19 +953,19 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
       </div>
       <div class="review-cols" id="review-cols">
         <div class="review-col"><div class="review-track">
-          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 1 — implant patient]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
-          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 2]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
-          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 3]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
+          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 1 — implant patient]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
+          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 2]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
+          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 3]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
         </div></div>
         <div class="review-col"><div class="review-track">
-          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 4]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
-          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 5]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
-          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 6]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
+          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 4]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
+          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 5]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
+          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 6]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
         </div></div>
         <div class="review-col"><div class="review-track">
-          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 7]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
-          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 8]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
-          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#C2A25B" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 9]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
+          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 7]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
+          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 8]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
+          <article class="review-card"><div class="stars" aria-label="5 out of 5 stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#D9A662" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.8L18.3 21 12 17.3 5.7 21l1.5-6.8L2 9.4l7-.8z"/></svg></div><p><span class="todo">[Google review 9]</span></p><footer><span class="todo">[Name]</span> · Google review</footer></article>
         </div></div>
       </div>
     </div>
@@ -1045,11 +1042,11 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
           <h2 id="included-heading">What your complimentary consultation includes</h2>
         </div>
         <ul class="check-list">
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>A full clinical examination</strong> with one of our experienced dentists</span></li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>A complimentary <span class="nowrap">OPG X-ray</span></strong> to assess your bone and implant suitability</span></li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>An honest conversation</strong> about every option open to you — including doing nothing</span></li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>A written treatment plan and printed estimate</strong> to take home — signed copies for both of us</span></li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E6B4F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>Time to decide</strong> — call, email, or book a review with your clinician whenever questions come up</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>A full clinical examination</strong> with one of our experienced dentists</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>A complimentary <span class="nowrap">OPG X-ray</span></strong> to assess your bone and implant suitability</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>An honest conversation</strong> about every option open to you — including doing nothing</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>A written treatment plan and printed estimate</strong> to take home — signed copies for both of us</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><strong>Time to decide</strong> — call, email, or book a review with your clinician whenever questions come up</span></li>
         </ul>
       </div>
       <div>
@@ -1073,27 +1070,27 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
       </div>
       <div class="faq" id="faq-list">
         <div class="faq-item">
-          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">Does having an implant placed hurt?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">Does having an implant placed hurt?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
           <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1" hidden><div>Placement is done under local anaesthetic, so you shouldn't feel pain during the procedure — most patients describe it as easier than a tooth extraction. Some soreness for a few days afterwards is normal and usually settles with ordinary painkillers. Having a hospital consultant surgeon place the implant also means the surgery itself is as precise and gentle as it can be.</div></div>
         </div>
         <div class="faq-item">
-          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">How much does a dental implant cost?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">How much does a dental implant cost?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
           <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2" hidden><div>Single implants start from £2,950. If your <span class="nowrap">X-ray</span> shows you need preparatory work, a bone graft is £750 and a sinus lift £1,450 — and we'll only recommend either when it's genuinely required. Implant-secured dentures range from £3,000 to £5,000. Whatever your plan involves, you'll have every figure in a written, itemised estimate before you commit to anything.</div></div>
         </div>
         <div class="faq-item">
-          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">I've been told I don't have enough bone. Can I still have implants?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">I've been told I don't have enough bone. Can I still have implants?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
           <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3" hidden><div>Often, yes. Bone grafting and sinus lifts can rebuild support where bone has receded — exactly the kind of surgery our in-house consultant surgeon handles routinely. Your complimentary <span class="nowrap">OPG X-ray</span> is the honest starting point: it shows us precisely what you're working with, and we'll tell you plainly what is and isn't possible.</div></div>
         </div>
         <div class="faq-item">
-          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">Can implants really stop my dentures slipping?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">Can implants really stop my dentures slipping?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
           <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4" hidden><div>Yes — implant-secured dentures clip onto implants placed in the jaw, so they stay firmly in place while you eat, talk, and laugh. No adhesive, no clicking, no bracing yourself before biting into anything. They're planned around your clinical needs and comfort, and cost between £3,000 and £5,000.</div></div>
         </div>
         <div class="faq-item">
-          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">How long does implant treatment take?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">How long does implant treatment take?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
           <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5" hidden><div>It varies with your case — an implant needs a healing period to bond with the bone before the final tooth is fitted, typically a few months, and preparatory work adds time when it's needed. Your written treatment plan will set out your personal timeline, stage by stage, so there are no surprises. <span class="todo">[Confirm typical timeline wording with the practice]</span></div></div>
         </div>
         <div class="faq-item">
-          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">Is the consultation genuinely free? What's the catch?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
+          <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">Is the consultation genuinely free? What's the catch?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></h3>
           <div class="faq-a" id="faq-a-6" role="region" aria-labelledby="faq-q-6" hidden><div>There isn't one. The implant consultation and OPG X-ray are complimentary, and you're under no obligation afterwards. We don't do discounts, pressure, or quick fixes — our view is that if we give you an honest assessment and time to think, you'll make the decision that's right for you. Many people simply want to know where they stand; that's a perfectly good reason to come in.</div></div>
         </div>
       </div>
@@ -1109,9 +1106,9 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
         <h2 id="final-heading" class="anim" style="--d:60ms">Ready to stop thinking twice before you smile?</h2>
         <p class="anim" style="--d:140ms; color:var(--color-on-primary-mut)">Book your complimentary consultation with <span class="nowrap">OPG X-ray</span>. A calm conversation, an honest assessment, and a written plan — then the decision is yours.</p>
         <ul class="address-list anim" style="--d:200ms">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>2 Lushington Road, Eastbourne, BN21 4LL — 5 minutes from the station, paid parking outside</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Mon/Wed/Thu 8–6 · Tue 8–7 · Fri 8–4 · Sat 9–1</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2A25B" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg><span><span class="todo">[01323 000 000]</span></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>2 Lushington Road, Eastbourne, BN21 4LL — 5 minutes from the station, paid parking outside</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Mon/Wed/Thu 8–6 · Tue 8–7 · Fri 8–4 · Sat 9–1</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F06EAA" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg><span><span class="todo">[01323 000 000]</span></span></li>
         </ul>
         <p class="anim" style="--d:260ms; margin:0"><a class="btn btn-gold" href="#book">Book your complimentary consultation<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
       </div>

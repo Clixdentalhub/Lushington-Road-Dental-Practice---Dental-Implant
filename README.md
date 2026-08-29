@@ -46,11 +46,17 @@ node build.mjs       # writes dist/ and prints the pre-publish checklist
 
 ## Design system notes
 
-- Palette: deep green primary `#1F332A`, warm beige ground `#F6F2EA`,
-  metallic gold accent `#C2A25B`/`#D3B26A` — per brand (beige/light
-  grey/green + metallic gold, "nothing tacky", no discount styling).
-- `--cta-on-dark` (gold) measures 6.61:1 against the dark band with 6.61:1
-  text on it — proven in `labs/tokens.html`, re-checked by `verify.mjs`.
+- Palette: built around the website brand pink `#F06EAA` — deep plum
+  bands `#3B1F30`, blush-ivory ground `#FAF3F5`, deep raspberry CTAs
+  `#A02D64` on light grounds, the brand pink itself as the CTA and
+  flourish on dark bands, champagne gold `#D9A662` reserved for review
+  stars. The previous green/gold scheme is kept as alternate palette B
+  in the token lab.
+- `--cta-on-dark` (the brand pink) measures 5.28:1 against the plum band
+  with 5.28:1 text on it — proven in `labs/tokens.html`, re-checked by
+  `verify.mjs`.
+- Typography: Cormorant Garamond (600/700) for headings, Mulish for body
+  and buttons, loaded from Google Fonts with serif/sans system fallbacks.
 - Motion: one pattern per section. Word-rise hero headline (masks built
   from live text at runtime), card cascades, calm-drift blooms weighted to
   band bases, count-up stats, tick draw on the thank-you page.

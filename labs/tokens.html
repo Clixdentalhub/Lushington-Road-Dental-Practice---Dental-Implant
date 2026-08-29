@@ -5,12 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Token Foundation — Lushington Road Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@400;600;700&display=swap">
 <style>
 /* ============ P1 · TOKEN FOUNDATION ============
    Palette A is the live brand palette used by index.html and
    thank-you.html. B/C/D are complete alternates — re-skin the whole
    system by swapping this one block. */
 :root{
+  --color-primary:#3B1F30; --color-primary-dark:#2B1523;
+  --color-on-primary:#FBF4F7; --color-on-primary-mut:#DCC3D0;
+  --color-secondary:#C48BA6;
+  --color-accent:#A02D64; --color-accent-dark:#83244F; --color-on-accent:#FBF4F7;
+  --cta-on-dark:#F06EAA; --cta-on-dark-text:#3B1F30;
+  --color-flourish:#F06EAA; --color-on-primary-err:#F4A9B4;
+  --color-background:#FAF3F5; --color-surface:#FFFFFF;
+  --color-foreground:#33222C; --color-foreground-mut:#6B5260;
+  --color-muted:#F3E4EA; --color-border:#EBD9E1; --color-border-strong:#D3B9C6;
+  --color-success:#2E6B4F; --color-error:#B03038; --color-star:#D9A662;
+  --radius:12px; --radius-sm:8px; --radius-lg:20px; --radius-pill:999px;
+  --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px; --sp-5:48px; --sp-6:64px; --sp-7:80px;
+  --font-head:"Cormorant Garamond","Playfair Display",Georgia,"Times New Roman",serif;
+  --font-body:"Mulish","Seravek","Gill Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --ease-out:cubic-bezier(.22,1,.36,1); --ease-soft:cubic-bezier(.45,0,.15,1);
+  --dur-fast:240ms; --dur-med:460ms; --dur-slow:680ms;
+}
+/* Alternate palettes — applied to <body> via data-palette */
+[data-palette="b"]{
   --color-primary:#1F332A; --color-primary-dark:#16261F;
   --color-on-primary:#F7F3EA; --color-on-primary-mut:#C9D2CB;
   --color-secondary:#8FA697;
@@ -21,25 +43,6 @@
   --color-foreground:#22302A; --color-foreground-mut:#54635B;
   --color-muted:#EDE7DB; --color-border:#E2DCCE; --color-border-strong:#C9C0AC;
   --color-success:#2E6B4F; --color-error:#A63B32; --color-star:#C2A25B;
-  --radius:12px; --radius-sm:8px; --radius-lg:20px; --radius-pill:999px;
-  --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px; --sp-5:48px; --sp-6:64px; --sp-7:80px;
-  --font-head:"Avenir Next","Century Gothic","Futura","Segoe UI",system-ui,sans-serif;
-  --font-body:"Seravek","Gill Sans","Segoe UI",system-ui,-apple-system,sans-serif;
-  --ease-out:cubic-bezier(.22,1,.36,1); --ease-soft:cubic-bezier(.45,0,.15,1);
-  --dur-fast:240ms; --dur-med:460ms; --dur-slow:680ms;
-}
-/* Alternate palettes — applied to <body> via data-palette */
-[data-palette="b"]{
-  --color-primary:#232B3A; --color-primary-dark:#181E2A;
-  --color-on-primary:#F2F4F8; --color-on-primary-mut:#C4CBD8;
-  --color-secondary:#8B97AD;
-  --color-accent:#31405C; --color-accent-dark:#263248; --color-on-accent:#F2F4F8;
-  --cta-on-dark:#D9A662; --cta-on-dark-text:#232B3A;
-  --color-flourish:#C99B5A; --color-on-primary-err:#F1A79E;
-  --color-background:#F4F3F0; --color-surface:#FFFFFF;
-  --color-foreground:#242B38; --color-foreground-mut:#535D6E;
-  --color-muted:#E9E7E1; --color-border:#DEDBD2; --color-border-strong:#C3BFB2;
-  --color-success:#2E6B4F; --color-error:#A63B32; --color-star:#C99B5A;
 }
 [data-palette="c"]{
   --color-primary:#3A2A33; --color-primary-dark:#2B1F26;
@@ -101,8 +104,8 @@ th{ font-family:var(--font-head); font-size:12px; letter-spacing:.1em; text-tran
   <p class="note">Every text/background pair below is computed from relative luminance at render time, not judged by eye. The rule that matters most: <code>--cta-on-dark</code> must measure ≥3:1 against the dark band with ≥4.5:1 text on it — a CTA in its normal colour almost never passes on a dark ground. Palette A ships on the funnel; B–D are complete alternates swappable as one block.</p>
 
   <div class="picker" role="group" aria-label="Palette">
-    <button type="button" data-pal="a" aria-pressed="true">A · Lushington (live)</button>
-    <button type="button" data-pal="b" aria-pressed="false">B · Ink &amp; Brass</button>
+    <button type="button" data-pal="a" aria-pressed="true">A · Lushington Blush (live)</button>
+    <button type="button" data-pal="b" aria-pressed="false">B · Heritage Green</button>
     <button type="button" data-pal="c" aria-pressed="false">C · Mulberry</button>
     <button type="button" data-pal="d" aria-pressed="false">D · Deep Teal</button>
   </div>
