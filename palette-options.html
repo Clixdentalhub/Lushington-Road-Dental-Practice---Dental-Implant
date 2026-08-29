@@ -60,7 +60,7 @@ h1{ font-family:"Cormorant Garamond",Georgia,serif; font-size:clamp(34px,5vw,48p
 <body>
 <div class="wrap">
   <h1>Colour palette options</h1>
-  <p class="intro">Five directions for the implant funnel, each built around (or against) the website pink <strong>#F06EAA</strong> and each passing WCAG AA on every pair shown — the badges under each option are computed live from the actual colours. Same layout, same type, only the palette changes. <strong>Option A is what's live now.</strong></p>
+  <p class="intro">Five directions for the implant funnel, each built around (or against) the website pink <strong>#F06EAA</strong> and each passing WCAG AA on every pair shown — the badges under each option are computed live from the actual colours. Same layout, same type, only the palette changes. <strong>Option C is what's live now.</strong></p>
   <div id="options"></div>
   <p class="note">Note: the wordmark shown is recoloured to each palette's ink automatically in the real build. Switching the live funnel to any option is a single token-block swap — say the letter and it ships.</p>
 </div>
@@ -69,16 +69,16 @@ h1{ font-family:"Cormorant Garamond",Georgia,serif; font-size:clamp(34px,5vw,48p
 (function(){
   'use strict';
   var palettes = [
-    { key:'A', name:'A · Plum & Rose', live:true,
-      note:'What’s live now. Deep plum bands, blush ivory ground, the brand pink as the CTA on dark.',
+    { key:'A', name:'A · Plum & Rose',
+      note:'Deep plum bands, blush ivory ground, the brand pink as the CTA on dark.',
       primary:'#3B1F30', primaryMut:'#DCC3D0', bg:'#FAF3F5', surface:'#FFFFFF',
       accent:'#A02D64', onAccent:'#FBF4F7', cta:'#F06EAA', fg:'#33222C', mut:'#6B5260', border:'#EBD9E1' },
     { key:'B', name:'B · Noir Rose',
       note:'High-fashion: near-black bands make the pink electric. The most dramatic, most "London clinic" of the set.',
       primary:'#221A20', primaryMut:'#CFC5CC', bg:'#F7F4F3', surface:'#FFFFFF',
       accent:'#8C2B57', onAccent:'#FBF4F7', cta:'#F06EAA', fg:'#262025', mut:'#69606A', border:'#E6DFE2' },
-    { key:'C', name:'C · Mulberry & Champagne',
-      note:'Pink stays in the brand moments; CTAs on dark go champagne gold. The warmest and most classically luxurious.',
+    { key:'C', name:'C · Mulberry & Champagne', live:true,
+      note:'Now live. Pink stays in the brand moments; CTAs on dark go champagne gold. The warmest and most classically luxurious.',
       primary:'#45213A', primaryMut:'#DCC8D4', bg:'#FAF5EE', surface:'#FFFFFF',
       accent:'#93305F', onAccent:'#FBF4F7', cta:'#E5AF62', fg:'#362231', mut:'#6E5A67', border:'#EADFD2' },
     { key:'D', name:'D · Deep Wine',

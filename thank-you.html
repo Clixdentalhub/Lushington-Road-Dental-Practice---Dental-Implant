@@ -23,15 +23,15 @@
 <style>
 /* Same token foundation as index.html — see labs/tokens.html for contrast proof */
 :root{
-  --color-primary:#3B1F30; --color-primary-dark:#2B1523;
-  --color-on-primary:#FBF4F7; --color-on-primary-mut:#DCC3D0;
-  --color-secondary:#C48BA6;
-  --color-accent:#A02D64; --color-accent-dark:#83244F; --color-on-accent:#FBF4F7;
-  --cta-on-dark:#F06EAA; --cta-on-dark-text:#3B1F30;
-  --color-flourish:#F06EAA; --color-on-primary-err:#F4A9B4;
-  --color-background:#FAF3F5; --color-surface:#FFFFFF;
-  --color-foreground:#33222C; --color-foreground-mut:#6B5260;
-  --color-muted:#F3E4EA; --color-border:#EBD9E1; --color-border-strong:#D3B9C6;
+  --color-primary:#45213A; --color-primary-dark:#2F1527;
+  --color-on-primary:#FBF4F7; --color-on-primary-mut:#DCC8D4;
+  --color-secondary:#B4809B;
+  --color-accent:#93305F; --color-accent-dark:#78264D; --color-on-accent:#FBF4F7;
+  --cta-on-dark:#E5AF62; --cta-on-dark-text:#45213A;
+  --color-flourish:#E5AF62; --color-on-primary-err:#F4A9B4;
+  --color-background:#FAF5EE; --color-surface:#FFFFFF;
+  --color-foreground:#362231; --color-foreground-mut:#6E5A67;
+  --color-muted:#F3EADE; --color-border:#EADFD2; --color-border-strong:#D2C3B2;
   --color-success:#2E6B4F; --color-error:#B03038; --color-star:#D9A662;
   --radius:12px; --radius-sm:8px; --radius-lg:20px; --radius-pill:999px;
   --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px; --sp-5:48px; --sp-6:64px; --sp-7:80px;
@@ -66,7 +66,7 @@ a{ color:var(--color-accent); }
 .btn-primary{ background:var(--color-accent); color:var(--color-on-accent); }
 .btn-primary:hover{ background:var(--color-accent-dark); transform:translateY(-2px); }
 .btn-gold{ background:var(--cta-on-dark); color:var(--cta-on-dark-text); }
-.btn-gold:hover{ background:#F8A5C8; transform:translateY(-2px); }
+.btn-gold:hover{ background:#EEC382; transform:translateY(-2px); }
 .btn:focus-visible, a:focus-visible{ outline:3px solid var(--cta-on-dark); outline-offset:2px; }
 
 .site-header{
@@ -86,12 +86,12 @@ main{ padding-top:65px; }
 .band-motion i{ position:absolute; display:block; border-radius:50%; filter:blur(60px); opacity:.5; }
 .band-motion i:first-child{
   width:520px; height:340px; left:-160px; bottom:-180px;
-  background:radial-gradient(closest-side, rgba(240,110,170,.55), transparent 70%);
+  background:radial-gradient(closest-side, rgba(229,175,98,.55), transparent 70%);
   animation:drift-a 26s var(--ease-soft) infinite alternate;
 }
 .band-motion i:last-child{
   width:620px; height:380px; right:-200px; bottom:-220px;
-  background:radial-gradient(closest-side, rgba(131,36,79,.9), transparent 70%);
+  background:radial-gradient(closest-side, rgba(120,38,77,.9), transparent 70%);
   animation:drift-b 31s var(--ease-soft) infinite alternate;
 }
 @keyframes drift-a{ from{ transform:translate(0,0);} to{ transform:translate(90px,-40px);} }
@@ -102,12 +102,12 @@ main{ padding-top:65px; }
    so the visitor still feels inside the thing they just filled in */
 .confirm-card{
   max-width:640px; margin:0 auto; text-align:center;
-  background:rgba(255,255,255,.045); border:1px solid rgba(240,110,170,.4);
+  background:rgba(255,255,255,.045); border:1px solid rgba(229,175,98,.4);
   border-radius:var(--radius-lg); padding:var(--sp-5) var(--sp-3);
 }
 @media (min-width:768px){ .confirm-card{ padding:var(--sp-5); } }
 .confirm-rule{ height:2px; border:0; margin:0 auto var(--sp-4); max-width:200px;
-  background:linear-gradient(90deg, rgba(240,110,170,.1), var(--color-flourish), rgba(240,110,170,.1)); }
+  background:linear-gradient(90deg, rgba(229,175,98,.1), var(--color-flourish), rgba(229,175,98,.1)); }
 .tick-ring{ display:block; margin:0 auto var(--sp-3); }
 .tick-ring circle{
   stroke:var(--color-flourish); stroke-dasharray:214; stroke-dashoffset:214;
@@ -238,10 +238,10 @@ html.js.can-motion .anim.in{ opacity:1; transform:none; }
         <p>Nothing to prepare — but a moment on these makes your consultation more useful.</p>
       </div>
       <ul class="prep-list">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Which days and times suit you best — we open early most days, late on Tuesdays, and Saturday mornings.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>How long the tooth has been missing or troubling you, and any dental work you've had in that area.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Any medications you take or health conditions — they can matter for implant planning.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A02D64" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>The questions you most want answered — write them down and bring them along.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93305F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Which days and times suit you best — we open early most days, late on Tuesdays, and Saturday mornings.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93305F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>How long the tooth has been missing or troubling you, and any dental work you've had in that area.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93305F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Any medications you take or health conditions — they can matter for implant planning.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93305F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>The questions you most want answered — write them down and bring them along.</span></li>
       </ul>
     </div>
   </section>
