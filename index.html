@@ -1495,8 +1495,10 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
     }
 
     btnNext.disabled = true;
+    /* GHL-hosted thank-you page (conversion fires there, and only there) */
+    var THANK_YOU = 'https://sites.leadconnectorhq.com/preview/PEUC9I0KpjtfsWtdLWqh';
     var name = encodeURIComponent(data.first_name);
-    window.location.href = 'thank-you.html' + (name ? '?name=' + name : '');
+    window.location.href = THANK_YOU + (name ? '?name=' + name : '');
   }
 
   showStep(1);
