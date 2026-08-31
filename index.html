@@ -567,10 +567,27 @@ html.js.can-motion .journey-step.in::before{ opacity:1; transform:none; }
 /* ================================================================
    TEAM roster → one profile panel
    ================================================================ */
-.team-photo{ min-height:280px; margin-bottom:var(--sp-3); }
-.about-grid{ display:grid; gap:var(--sp-4); }
-@media (min-width:900px){ .about-grid{ grid-template-columns:1.1fr .9fr; } }
-.about-grid p{ font-size:16px; }
+.feature-grid{ display:grid; gap:var(--sp-4); }
+@media (min-width:900px){ .feature-grid{ grid-template-columns:.85fr 1.15fr; gap:var(--sp-5); align-items:center; } }
+.feature-photo{
+  margin:0; background:var(--color-surface); border:1px solid var(--color-border);
+  border-radius:var(--radius-lg); padding:10px 10px 16px;
+  box-shadow:0 20px 50px rgba(69,33,58,.12);
+}
+.feature-photo .media-slot{ border-radius:calc(var(--radius-lg) - 6px); min-height:0; }
+.feature-photo .media-slot:has(img){ min-height:0; }
+.feature-photo img{ aspect-ratio:3/2; object-fit:cover; }
+.feature-photo figcaption{ text-align:center; padding-top:14px; }
+.feature-photo figcaption strong{ display:block; font-family:var(--font-head); font-weight:700; font-size:20px; }
+.feature-photo figcaption span{ font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--color-foreground-mut); }
+.feature-eyebrow{ font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--color-accent); margin:0 0 10px; }
+.feature-copy h2{ font-size:clamp(29px, 4.6vw, 40px); }
+.feature-copy p{ font-size:16px; }
+.pull-quote{
+  margin:0 0 var(--sp-3); padding:6px 0 6px 20px;
+  border-left:3px solid var(--cta-on-dark);
+  font-size:17.5px; line-height:1.55; color:var(--color-foreground);
+}
 
 /* ================================================================
    WHAT'S INCLUDED
@@ -1022,31 +1039,24 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
     </div>
   </section>
 
-  <!-- ============ ABOUT US ============ -->
+  <!-- ============ ABOUT US — feature layout ============ -->
   <section class="band" id="team" aria-labelledby="team-heading" style="background:var(--color-muted)">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="team-heading">Caring for Eastbourne’s smiles since&nbsp;1971</h2>
-        <p>Established for over fifty years and thriving on recommendations, we’re right at the heart of Eastbourne town centre — bringing quality, caring, ethical dentistry to your doorstep.</p>
-      </div>
-      <div class="media-slot team-photo anim" data-file="assets/team-outside.jpg">
-        <img src="assets/team-outside.jpg" alt="The Lushington Road Dental Practice team outside the practice">
-      </div>
-      <div class="about-grid">
-        <div class="anim" style="--d:80ms">
-          <p>What makes us different? Our team. We’re more like a family — happy to go the extra mile to make you smile, for life. We completely understand how scary and nerve-wracking visiting the dentist can be, so we’re here to make every step of the way that little bit easier for you.</p>
-          <p>And we offer more than your average high-street dentist: an in-house Maxillo-facial Surgeon for implants, difficult extractions and biopsies, cosmetic dentistry, facial aesthetics, and transparent pricing with dental plans available.</p>
+    <div class="container feature-grid">
+      <figure class="feature-photo anim">
+        <div class="media-slot" data-file="assets/team-outside.jpg">
+          <img src="assets/team-outside.jpg" alt="The Lushington Road Dental Practice team outside the practice">
         </div>
-        <div class="anim" style="--d:160ms">
-          <div class="callout">
-            <h3>Our promise</h3>
-            <p>Our highly trained, professional and ethical team will care for you and treat you as they would family — with quality, modern dentistry that lasts. And dentistry that will make you smile.</p>
-          </div>
-          <div class="callout">
-            <h3>Easy access for everyone</h3>
-            <p>We’re on the ground floor with a purpose-built accessible toilet. If you have a disability we should know about, call us before your appointment and we’ll put suitable arrangements in place.</p>
-          </div>
-        </div>
+        <figcaption>
+          <strong>The Lushington Road team</strong>
+          <span>Est. 1971 · Eastbourne town centre</span>
+        </figcaption>
+      </figure>
+      <div class="feature-copy">
+        <p class="feature-eyebrow anim">About us · Established 1971 · In-house <span class="nowrap">Maxillo-facial</span> Surgeon</p>
+        <h2 id="team-heading" class="anim" style="--d:60ms">More like a family than a dental&nbsp;practice</h2>
+        <blockquote class="pull-quote anim" style="--d:120ms">“Our highly trained, professional and ethical team will care for you and treat you as they would family — with quality, modern dentistry that lasts. And dentistry that will make you smile.”</blockquote>
+        <p class="anim" style="--d:180ms">Established since 1971 and thriving on recommendations, we’re right at the heart of Eastbourne town centre — bringing quality, caring, ethical dentistry to your doorstep. We completely understand how scary and nerve-wracking visiting the dentist can be, so our team is here to make every step of the way that little bit easier for you.</p>
+        <p class="anim" style="--d:240ms">We offer more than your average high-street dentist: an in-house <span class="nowrap">Maxillo-facial</span> Surgeon for implants, difficult extractions and biopsies, cosmetic dentistry, facial aesthetics, and transparent pricing. And we’re on the ground floor with a purpose-built accessible toilet — if you have a disability we should know about, call before your appointment and we’ll put suitable arrangements in place.</p>
       </div>
     </div>
   </section>
