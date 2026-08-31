@@ -271,9 +271,17 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
    HERO
    ================================================================ */
 .hero{ padding-top:var(--sp-4); }
-.hero-grid{ display:grid; gap:var(--sp-4); }
+/* mobile order: headline → form → proof; desktop: intro+proof left, form right */
+.hero-grid{ display:grid; gap:var(--sp-4); grid-template-areas:"intro" "form" "support"; }
+.hero-intro{ grid-area:intro; }
+.hero-support{ grid-area:support; }
+.hero-grid > .form-card{ grid-area:form; }
 @media (min-width:1024px){
-  .hero-grid{ grid-template-columns:1.05fr .95fr; gap:var(--sp-5); align-items:start; }
+  .hero-grid{
+    grid-template-columns:1.05fr .95fr; gap:0 var(--sp-5); align-items:start;
+    grid-template-areas:"intro form" "support form";
+  }
+  .hero-support{ margin-top:var(--sp-3); }
 }
 .eyebrow{
   display:inline-flex; align-items:center; gap:8px;
@@ -755,10 +763,12 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
   <!-- ============ HERO ============ -->
   <section class="band hero has-cut" id="book" style="--d:0ms">
     <div class="container hero-grid">
-      <div>
+      <div class="hero-intro">
         <p class="eyebrow">Eastbourne · Complimentary consultation</p>
         <h1 id="hero-headline">Dental implants, placed by a consultant&nbsp;surgeon</h1>
         <p class="sub">If you're living with a missing tooth, a failing tooth, or dentures that won't stay secure, implants may be a permanent, natural-feeling answer. At Lushington Road Dental, implant care is delivered with hospital-level skill in a calm Eastbourne practice.</p>
+      </div>
+      <div class="hero-support">
         <ul class="ticks">
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93305F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Implants placed by our in-house implant surgeon — a hospital Consultant in Oral &amp; Maxillofacial&nbsp;Surgery</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93305F" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Complimentary consultation including an <span class="nowrap">OPG X-ray</span> to assess your&nbsp;suitability</span></li>
