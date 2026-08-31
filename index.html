@@ -16,6 +16,7 @@
   "@type": "Dentist",
   "name": "Lushington Road Dental Practice",
   "url": "https://www.lushingtondental.com",
+  "telephone": "+44 7576 546311",
   "slogan": "Quality, honest dentistry that will make you smile",
   "address": {
     "@type": "PostalAddress",
@@ -158,10 +159,10 @@ a{ color:var(--color-accent); }
 .brand-name{ font-family:var(--font-head); font-weight:700; font-size:18px; line-height:1.2; }
 .brand-sub{ display:block; font-size:11px; font-weight:400; letter-spacing:.14em; text-transform:uppercase; color:var(--color-foreground-mut); }
 .header-phone{
-  display:none; align-items:center; gap:8px; font-size:14px; color:var(--color-foreground-mut);
-  white-space:nowrap;
+  display:none; align-items:center; gap:8px; font-size:14px; font-weight:600;
+  color:var(--color-foreground-mut); white-space:nowrap; text-decoration:none;
 }
-.header-phone .todo{ white-space:nowrap; }
+.header-phone:hover{ color:var(--color-accent); }
 @media (min-width:1440px){ .header-phone{ display:inline-flex; } } /* nav row splits brand/nav/actions from 1200px */
 .header-cta{ padding:11px 22px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; white-space:nowrap; }
 .cta-long{ display:none; }
@@ -688,10 +689,10 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
       <img src="assets/logo-dark.png" alt="Lushington Road Dental Practice">
     </a>
     <div class="header-actions">
-      <span class="header-phone">
+      <a class="header-phone" href="tel:+447576546311">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
-        <span class="todo">[01323 000 000]</span>
-      </span>
+        <span>07576&nbsp;546311</span>
+      </a>
       <a class="btn btn-primary header-cta" href="#book"><span>Book<span class="cta-long">&nbsp;consultation</span></span></a>
     </div>
     <nav class="nav-rail-wrap" aria-label="Page sections">
@@ -1138,7 +1139,7 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
         <ul class="address-list anim" style="--d:200ms">
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>2 Lushington Road, Eastbourne, BN21 4LL — 5 minutes from the station, paid parking outside</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Mon/Wed/Thu 8–6 · Tue 8–7 · Fri 8–4 · Sat 9–1</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg><span><span class="todo">[01323 000 000]</span></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg><span><a href="tel:+447576546311" style="color:inherit; font-weight:600">07576 546311</a></span></li>
         </ul>
         <p class="anim" style="--d:260ms; margin:0"><a class="btn btn-gold" href="#book">Book your complimentary consultation<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
       </div>
@@ -1177,6 +1178,7 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
 
 <!-- Sticky mobile CTA bar -->
 <div class="sticky-bar" id="sticky-bar">
+  <a class="btn btn-gold" href="tel:+447576546311" style="flex:0 0 auto">Call us</a>
   <a class="btn btn-primary" href="#book">Book complimentary consultation</a>
 </div>
 
@@ -1469,22 +1471,25 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
       email: document.getElementById('f-email').value.trim()
     };
 
-    /* ==========================================================
-       CRM INTEGRATION BLOCK — wire before publish.
-       Post `data` to the practice's LeadConnector / GHL inbound
-       webhook or form endpoint here, e.g.:
-
-         fetch('[LEADCONNECTOR WEBHOOK URL]', {
-           method: 'POST',
-           headers: { 'Content-Type': 'application/json' },
-           body: JSON.stringify(data)
-         });
-
-       Client QA form reference (from onboarding pack):
-       api.leadconnectorhq.com/widget/form/aF2CDL0LzIKm6oul8sDs
-       NOTE: do NOT also fire a conversion event here — the
-       conversion fires in exactly one place, on thank-you.html.
-       ========================================================== */
+    /* CRM: post the lead to the practice's GHL/LeadConnector inbound
+       webhook. keepalive lets the request complete through the redirect;
+       sendBeacon is the fallback if fetch is unavailable or throws.
+       The conversion event still fires in exactly ONE place: thank-you.html. */
+    var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/M41ivVrk4nr1umhTsjWS/webhook-trigger/337c9d4b-b89a-4fb4-b486-9cda711f9f82';
+    data.source = 'Dental Implant Funnel';
+    var payload = JSON.stringify(data);
+    try {
+      fetch(WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true
+      }).catch(function(){
+        if (navigator.sendBeacon) navigator.sendBeacon(WEBHOOK, payload);
+      });
+    } catch (e) {
+      if (navigator.sendBeacon) navigator.sendBeacon(WEBHOOK, payload);
+    }
 
     btnNext.disabled = true;
     var name = encodeURIComponent(data.first_name);
