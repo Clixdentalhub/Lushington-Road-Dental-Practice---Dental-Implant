@@ -665,6 +665,44 @@ html.js.can-motion .journey-step.in::before{ opacity:1; transform:none; }
 @media (prefers-reduced-motion:reduce){ .sticky-bar{ transition:none; } }
 
 /* ================================================================
+   MOBILE ALIGNMENT — centre what reads awkward left-aligned on a
+   narrow screen; long body copy and checklists stay left for
+   readability.
+   ================================================================ */
+@media (max-width:767px){
+  .eyebrow{ justify-content:center; text-align:center; }
+  .eyebrow::before{ display:none; }
+  .hero h1, .hero .sub{ text-align:center; }
+  .hero .sub{ margin-left:auto; margin-right:auto; }
+  .anchor-fig{
+    justify-content:center; text-align:center;
+    border-left:0; border-top:3px solid var(--color-flourish);
+    border-radius:0 0 var(--radius) var(--radius);
+  }
+  .chips{ justify-content:center; }
+  .section-head{ text-align:center; margin-left:auto; margin-right:auto; }
+  .trust-item{ text-align:center; }
+  .trust-item svg{ display:block; margin:0 auto 10px; }
+  .stack-card .card-body{ text-align:center; }
+  .price-card{ text-align:center; }
+  .price-card ul{ text-align:left; }
+  .flag{ left:50%; transform:translateX(-50%); white-space:nowrap; }
+  .price-card .btn{ width:100%; }
+  .journey-step{ text-align:center; }
+  .rule-draw{ margin-left:auto; margin-right:auto; }
+  #reassure-heading, #reassure-heading ~ p{ text-align:center; }
+  #final-heading, #final-heading ~ p{ text-align:center; }
+  .address-list li{ justify-content:center; text-align:left; }
+  .feature-eyebrow, .feature-copy h2{ text-align:center; }
+  .pull-quote{ border-left:0; padding:16px 0 0; text-align:center; }
+  .pull-quote::before{
+    content:""; display:block; width:56px; height:2px;
+    background:var(--cta-on-dark); margin:0 auto 14px;
+  }
+  .site-footer{ text-align:center; }
+}
+
+/* ================================================================
    P8 · MOTION — one pattern per section, resting states in CSS.
    Hidden states apply ONLY under html.js + motion allowed, so the
    page never depends on JS to look right.
