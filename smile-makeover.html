@@ -1519,8 +1519,10 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
     }
 
     btnNext.disabled = true;
-    /* GHL-hosted thank-you page (conversion fires there, and only there) */
-    var THANK_YOU = 'https://sites.leadconnectorhq.com/preview/PEUC9I0KpjtfsWtdLWqh';
+    /* Campaign thank-you page (conversion fires there, and only there).
+       Swap for the GHL-hosted URL once this campaign's thank-you page
+       is published in LeadConnector. */
+    var THANK_YOU = 'smile-thank-you.html';
     var name = encodeURIComponent(data.first_name);
     window.location.href = THANK_YOU + (name ? '?name=' + name : '');
   }

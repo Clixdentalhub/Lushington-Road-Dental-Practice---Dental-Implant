@@ -11,7 +11,7 @@ import { dirname, join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
-const PAGES = ['index.html', 'smile-makeover.html', 'thank-you.html', 'palette-options.html'];
+const PAGES = ['index.html', 'smile-makeover.html', 'thank-you.html', 'smile-thank-you.html', 'palette-options.html'];
 const MIME = { '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.gif':'image/gif' };
 
 mkdirSync(join(root, 'dist'), { recursive: true });

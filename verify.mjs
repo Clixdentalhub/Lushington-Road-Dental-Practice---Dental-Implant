@@ -13,7 +13,7 @@ import { mkdirSync } from 'node:fs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const WIDTHS = [360, 375, 414, 768, 1024, 1280, 1440];
-const PAGES = ['index.html', 'smile-makeover.html', 'thank-you.html', 'labs/tokens.html'];
+const PAGES = ['index.html', 'smile-makeover.html', 'thank-you.html', 'smile-thank-you.html', 'labs/tokens.html'];
 const shotDir = join(root, 'verify-screenshots');
 mkdirSync(shotDir, { recursive: true });
 
