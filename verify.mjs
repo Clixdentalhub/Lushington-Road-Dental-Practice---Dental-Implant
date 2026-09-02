@@ -13,7 +13,7 @@ import { mkdirSync } from 'node:fs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const WIDTHS = [360, 375, 414, 768, 1024, 1280, 1440];
-const PAGES = ['index.html', 'thank-you.html', 'labs/tokens.html'];
+const PAGES = ['index.html', 'smile-makeover.html', 'thank-you.html', 'labs/tokens.html'];
 const shotDir = join(root, 'verify-screenshots');
 mkdirSync(shotDir, { recursive: true });
 
@@ -136,7 +136,7 @@ for (const page of PAGES) {
         const token = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 0;
         return { real: el ? el.getBoundingClientRect().height : 0, token };
       });
-      if (page === 'index.html') {
+      if (page === 'index.html' || page === 'smile-makeover.html') {
         hdr.token >= hdr.real
           ? pass(`--header-h ${hdr.token}px ≥ header ${hdr.real.toFixed(1)}px`)
           : fail(`--header-h ${hdr.token}px < rendered header ${hdr.real.toFixed(1)}px`);
@@ -179,14 +179,18 @@ for (const page of PAGES) {
     typo.length === 0 ? pass('no heading widows detected') : typo.forEach((t) => console.log(`  warn  ${t}`));
 
     // 9 · form behaviour (index only, one width per class of device)
-    if (page === 'index.html' && (width === 375 || width === 1280)) {
+    if ((page === 'index.html' || page === 'smile-makeover.html') && (width === 375 || width === 1280)) {
       // validation blocks an empty step
       await pg.click('#btn-next');
       const err1 = await pg.evaluate(() => document.getElementById('err-step-1').classList.contains('show'));
       err1 ? pass('empty step blocked with error') : fail('empty step not blocked');
 
-      // pointer selection advances (after the 260ms beat)
-      await pg.click('input[name="situation"][value="Dentures that slip"]', { force: true });
+      // pointer selection advances (after the 260ms beat) — centre the
+      // option first so the fixed header can't swallow the click
+      await pg.evaluate(() =>
+        document.querySelector('.q-option input[name="situation"]').scrollIntoView({ block: 'center' }));
+      await pg.waitForTimeout(100);
+      await pg.click('.q-option input[name="situation"]', { force: true });
       await pg.waitForTimeout(500);
       let step = await pg.evaluate(() => document.getElementById('step-counter').textContent);
       step.includes('2') ? pass('pointer selection auto-advances') : fail(`pointer select did not advance (${step})`);
@@ -208,7 +212,7 @@ for (const page of PAGES) {
         const el = document.querySelector('input[name="situation"]:checked');
         return el && el.value;
       });
-      preserved === 'Dentures that slip' ? pass('back navigation preserves answers') : fail(`answer lost on back (${preserved})`);
+      preserved ? pass('back navigation preserves answers') : fail(`answer lost on back (${preserved})`);
 
       // errors clear on input
       await pg.click('#btn-next'); await pg.waitForTimeout(50);
