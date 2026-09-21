@@ -275,7 +275,8 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
 .hero-grid{ display:grid; gap:var(--sp-4); grid-template-areas:"intro" "form" "support"; }
 .hero-intro{ grid-area:intro; }
 .hero-support{ grid-area:support; }
-.hero-grid > .form-card{ grid-area:form; }
+.hero-grid > .form-card,
+.hero-grid > .cal-card{ grid-area:form; }
 @media (min-width:1024px){
   .hero-grid{
     grid-template-columns:1.05fr .95fr; gap:0 var(--sp-5); align-items:start;
@@ -351,6 +352,51 @@ section[id]{ scroll-margin-top:calc(var(--header-h) + 12px); }
   transition:background-color var(--dur-fast) var(--ease-out);
 }
 .progress-track i.done{ background:var(--color-flourish); }
+
+/* ================================================================
+   Booking calendar — compact hero embed + pop-up modal
+   ================================================================ */
+.cal-card{
+  background:var(--color-surface); border:1px solid var(--color-border);
+  border-radius:var(--radius-lg); padding:var(--sp-3);
+  box-shadow:0 20px 50px rgba(69,33,58,.10);
+}
+@media (min-width:768px){ .cal-card{ padding:var(--sp-4); } }
+.cal-card h2{ font-size:27px; margin-bottom:4px; }
+.cal-embed{
+  position:relative; width:100%; margin-top:var(--sp-2);
+  border-radius:var(--radius); overflow:hidden;
+}
+.cal-embed iframe{
+  width:100%; min-height:640px; border:0; display:block; background:var(--color-surface);
+}
+@media (max-width:520px){ .cal-embed iframe{ min-height:720px; } }
+
+.cal-modal{
+  position:fixed; inset:0; z-index:1000;
+  display:flex; align-items:center; justify-content:center; padding:clamp(8px,2vw,24px);
+}
+.cal-modal[hidden]{ display:none; }
+.cal-modal-backdrop{ position:absolute; inset:0; background:rgba(31,15,25,.62); }
+.cal-modal-panel{
+  position:relative; width:min(560px,100%); max-height:92vh; overflow:auto;
+  background:var(--color-surface); border-radius:var(--radius-lg);
+  box-shadow:0 40px 100px rgba(31,15,25,.45); padding:var(--sp-3);
+}
+@media (min-width:768px){ .cal-modal-panel{ padding:var(--sp-4); } }
+.cal-modal-panel h2{ font-size:24px; margin:0 var(--sp-4) 4px 0; }
+.cal-modal-note{ font-size:14px; color:var(--color-foreground-mut); margin:0 0 var(--sp-2); }
+.cal-modal-close{
+  position:absolute; top:10px; right:10px; width:40px; height:40px; border-radius:50%;
+  border:1px solid var(--color-border); background:var(--color-background); color:var(--color-foreground);
+  font-size:24px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:background-color var(--dur-fast) var(--ease-out);
+}
+.cal-modal-close:hover{ background:var(--color-border); }
+.cal-modal-close:focus-visible{ outline:2px solid var(--color-accent); outline-offset:2px; }
+.can-motion .cal-modal-panel{ animation:cal-pop var(--dur-fast) var(--ease-out) both; }
+@keyframes cal-pop{ from{ opacity:0; transform:translateY(12px) scale(.98); } to{ opacity:1; transform:none; } }
+body.cal-open{ overflow:hidden; }
 
 .q-step[hidden]{ display:none; }
 .q-legend{ font-family:var(--font-head); font-weight:700; font-size:21px; padding:0; margin:0 0 var(--sp-2); }
@@ -729,7 +775,7 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
 </style>
 </head>
 <body>
-<a class="skip-link" href="#book">Skip to registration form</a>
+<a class="skip-link" href="#book">Skip to booking calendar</a>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="site-header">
@@ -782,81 +828,18 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
         </ul>
       </div>
 
-      <!-- P6 · Qualifier form — Gilded Hairline -->
-      <div class="form-card">
+      <!-- Booking calendar (compact hero embed; CTAs elsewhere open the pop-up) -->
+      <div class="cal-card">
         <hr class="form-rule">
-        <p class="step-counter" id="step-counter">Step 1 of 3</p>
         <h2>Reserve your Experience Day place</h2>
-        <p class="form-note">Two quick questions, then your details. Our Experience Day is Saturday 10 October, and spaces are limited, so registered patients are offered places first.</p>
-        <div class="progress-track" aria-hidden="true"><i class="done" id="prog-1"></i><i id="prog-2"></i><i id="prog-3"></i></div>
-
-        <form id="qualifier" novalidate>
-          <!-- honeypot -->
-          <div class="hp-field" aria-hidden="true">
-            <label for="hp-company">Company</label>
-            <input type="text" id="hp-company" name="company" tabindex="-1" autocomplete="off">
-          </div>
-
-          <fieldset class="q-step" data-step="1" style="border:0;padding:0;margin:0">
-            <legend class="q-legend">What bothers you most about your smile?</legend>
-            <div class="q-list" role="radiogroup" aria-label="Your smile">
-              <label class="q-option"><input type="radio" name="situation" value="Crooked or crowded teeth"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>Crooked or crowded teeth</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="situation" value="Stained or discoloured"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>Staining or discolouration</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="situation" value="Chipped or worn edges"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>Chipped or worn edges</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="situation" value="Braces before - teeth drifted back"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>I had braces, but my teeth drifted back</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-            </div>
-            <p class="step-error" id="err-step-1" role="alert">Please choose the option closest to your situation.</p>
-          </fieldset>
-
-          <fieldset class="q-step" data-step="2" hidden style="border:0;padding:0;margin:0">
-            <legend class="q-legend">When would you like your new smile?</legend>
-            <div class="q-list" role="radiogroup" aria-label="Treatment timing">
-              <label class="q-option"><input type="radio" name="timing" value="As soon as possible"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>As soon as possible</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="timing" value="Within 1-3 months"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>Within 1–3 months</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="timing" value="In 3+ months"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>In three months or more</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-              <label class="q-option"><input type="radio" name="timing" value="Just researching"><span class="row"><span class="q-dot" aria-hidden="true"></span><span>Just researching for now</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9A662" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></label>
-            </div>
-            <p class="step-error" id="err-step-2" role="alert">Please choose when you'd like to start.</p>
-          </fieldset>
-
-          <fieldset class="q-step" data-step="3" hidden style="border:0;padding:0;margin:0">
-            <legend class="q-legend">Where should we send your confirmation?</legend>
-            <div class="field-row">
-              <div class="field">
-                <label for="f-first">First name</label>
-                <input type="text" id="f-first" name="first_name" autocomplete="given-name" aria-describedby="err-first">
-                <p class="field-error" id="err-first">Please enter your first name.</p>
-              </div>
-              <div class="field">
-                <label for="f-last">Surname</label>
-                <input type="text" id="f-last" name="last_name" autocomplete="family-name" aria-describedby="err-last">
-                <p class="field-error" id="err-last">Please enter your surname.</p>
-              </div>
-            </div>
-            <div class="field">
-              <label for="f-phone">Phone</label>
-              <input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" aria-describedby="err-phone">
-              <p class="field-error" id="err-phone">Please enter a valid UK phone number.</p>
-            </div>
-            <div class="field">
-              <label for="f-email">Email</label>
-              <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" aria-describedby="err-email">
-              <p class="field-error" id="err-email">Please enter a valid email address.</p>
-            </div>
-          </fieldset>
-
-          <div class="form-actions">
-            <button type="button" class="btn-back" id="btn-back" hidden>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
-              Back
-            </button>
-            <button type="button" class="btn btn-primary" id="btn-next">
-              Continue
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
-          </div>
-          <p class="form-fineprint">No obligation. Your details are used only to arrange your consultation. See our <a href="https://www.lushingtondental.com" rel="noopener">privacy policy</a>.</p>
-        </form>
+        <p class="form-note">Pick a time that suits you on Saturday 10 October. Spaces are limited, so book early. It takes under a minute, with no obligation.</p>
+        <div class="cal-embed">
+          <iframe src="https://api.leadconnectorhq.com/widget/booking/oEO233PEbSHpRFqkzXwG"
+                  title="Book your Smile Makeover Experience Day place"
+                  scrolling="no" loading="lazy"
+                  id="oEO233PEbSHpRFqkzXwG_hero"></iframe>
+        </div>
+        <p class="form-fineprint">No obligation. Your details are used only to arrange your Experience Day place. See our <a href="https://www.lushingtondental.com" rel="noopener">privacy policy</a>.</p>
       </div>
     </div>
     <!-- cut into the dark trust band -->
@@ -1209,6 +1192,20 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
   <a class="btn btn-primary" href="#book">Reserve my place</a>
 </div>
 
+<!-- Booking calendar pop-up -->
+<div class="cal-modal" id="cal-modal" hidden>
+  <div class="cal-modal-backdrop" data-cal-close></div>
+  <div class="cal-modal-panel" role="dialog" aria-modal="true" aria-labelledby="cal-modal-title">
+    <button type="button" class="cal-modal-close" data-cal-close aria-label="Close booking calendar">&times;</button>
+    <h2 id="cal-modal-title">Book your Experience Day place</h2>
+    <p class="cal-modal-note">Saturday 10 October in Eastbourne. Pick a time that suits you, spaces are limited.</p>
+    <div class="cal-embed" id="cal-modal-embed"></div>
+  </div>
+</div>
+
+<!-- GHL widget auto-resize (safe to fail; iframes have a min-height fallback) -->
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
+
 <script>
 (function(){
   'use strict';
@@ -1374,159 +1371,61 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
   });
 
   /* ================================================================
-     P6 · QUALIFIER FORM
-     Auto-advance on pointer input only; keyboard users use Continue.
+     Booking calendar pop-up
+     Every CTA button that pointed at #book now opens the calendar modal.
+     The hero keeps the calendar inline; the skip-link still scrolls there.
      ================================================================ */
-  var form = document.getElementById('qualifier');
-  var steps = Array.prototype.slice.call(form.querySelectorAll('.q-step'));
-  var btnNext = document.getElementById('btn-next');
-  var btnBack = document.getElementById('btn-back');
-  var counter = document.getElementById('step-counter');
-  var current = 1;
-  var pointerIntent = false;
+  var calModal = document.getElementById('cal-modal');
+  var calEmbed = document.getElementById('cal-modal-embed');
+  var CAL_SRC = 'https://api.leadconnectorhq.com/widget/booking/oEO233PEbSHpRFqkzXwG';
+  var calLoaded = false, lastFocus = null;
 
-  form.addEventListener('pointerdown', function(){
-    pointerIntent = true;
-    setTimeout(function(){ pointerIntent = false; }, 700);
-  });
-  /* any keystroke means keyboard driving — kill the pointer window */
-  form.addEventListener('keydown', function(){ pointerIntent = false; }, true);
-
-  function showStep(n){
-    current = n;
-    steps.forEach(function(s){ s.hidden = (parseInt(s.getAttribute('data-step'),10) !== n); });
-    counter.textContent = 'Step ' + n + ' of 3';
-    btnBack.hidden = (n === 1);
-    btnNext.textContent = '';
-    btnNext.insertAdjacentText('afterbegin', n === 3 ? 'Request my consultation' : 'Continue');
-    btnNext.insertAdjacentHTML('beforeend',
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>');
-    for (var i=1; i<=3; i++){
-      document.getElementById('prog-' + i).classList.toggle('done', i <= n);
-    }
+  function loadCalOnce(){
+    if (calLoaded || !calEmbed) return;
+    var f = document.createElement('iframe');
+    f.src = CAL_SRC;
+    f.title = 'Book your Smile Makeover Experience Day place';
+    f.setAttribute('scrolling', 'no');
+    f.id = 'oEO233PEbSHpRFqkzXwG_modal';
+    calEmbed.appendChild(f);
+    calLoaded = true;
   }
-
-  function clearStepError(n){
-    var el = document.getElementById('err-step-' + n);
-    if (el) el.classList.remove('show');
+  function openCal(){
+    if (!calModal) return;
+    lastFocus = document.activeElement;
+    loadCalOnce();
+    calModal.hidden = false;
+    document.body.classList.add('cal-open');
+    var closeBtn = calModal.querySelector('.cal-modal-close');
+    if (closeBtn) closeBtn.focus();
   }
-
-  function validateStep(n){
-    if (n === 1 || n === 2){
-      var name = n === 1 ? 'situation' : 'timing';
-      var ok = !!form.querySelector('input[name="' + name + '"]:checked');
-      document.getElementById('err-step-' + n).classList.toggle('show', !ok);
-      return ok;
-    }
-    var ok3 = true;
-    var checks = [
-      ['f-first', 'err-first', function(v){ return v.trim().length >= 2; }],
-      ['f-last', 'err-last', function(v){ return v.trim().length >= 2; }],
-      ['f-phone', 'err-phone', function(v){ return /^[0-9+()\s-]{10,16}$/.test(v.trim()); }],
-      ['f-email', 'err-email', function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }]
-    ];
-    checks.forEach(function(c){
-      var input = document.getElementById(c[0]);
-      var valid = c[2](input.value);
-      input.setAttribute('aria-invalid', String(!valid));
-      document.getElementById(c[1]).classList.toggle('show', !valid);
-      if (!valid) ok3 = false;
+  function closeCal(){
+    if (!calModal) return;
+    calModal.hidden = true;
+    document.body.classList.remove('cal-open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  if (calModal){
+    calModal.querySelectorAll('[data-cal-close]').forEach(function(el){
+      el.addEventListener('click', closeCal);
     });
-    return ok3;
-  }
-
-  /* errors clear as soon as the user fixes the field */
-  ['f-first','f-last','f-phone','f-email'].forEach(function(id){
-    var input = document.getElementById(id);
-    input.addEventListener('input', function(){
-      if (input.getAttribute('aria-invalid') === 'true'){
-        input.removeAttribute('aria-invalid');
-        var err = document.getElementById(input.getAttribute('aria-describedby'));
-        if (err) err.classList.remove('show');
-      }
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && !calModal.hidden) closeCal();
     });
-  });
-
-  /* pointer selection auto-advances after a ~260ms acknowledgement beat;
-     arrow-key selection (change without pointer intent) never advances */
-  form.addEventListener('change', function(e){
-    if (e.target.type !== 'radio') return;
-    clearStepError(current);
-    if (pointerIntent && current < 3){
-      pointerIntent = false; /* consume the intent — one advance per pointer press */
-      var from = current;
-      setTimeout(function(){ if (current === from) showStep(from + 1); }, 260);
-    }
-  });
-
-  function advance(){
-    if (!validateStep(current)) {
-      if (current === 3){
-        var firstBad = form.querySelector('[aria-invalid="true"]');
-        if (firstBad) firstBad.focus();
-      }
-      return;
-    }
-    if (current < 3) { showStep(current + 1); return; }
-    submitLead();
+    /* focus trap inside the panel */
+    calModal.addEventListener('keydown', function(e){
+      if (e.key !== 'Tab' || calModal.hidden) return;
+      var f = calModal.querySelectorAll('button, a[href], iframe, [tabindex]:not([tabindex="-1"])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    });
   }
-
-  btnNext.addEventListener('click', advance);
-  btnBack.addEventListener('click', function(){ if (current > 1) showStep(current - 1); });
-
-  /* Enter advances a step rather than submitting early */
-  form.addEventListener('keydown', function(e){
-    if (e.key === 'Enter' && e.target.tagName !== 'BUTTON'){
-      e.preventDefault();
-      advance();
-    }
+  /* every CTA button (never the skip-link) opens the pop-up instead of jumping */
+  document.querySelectorAll('a.btn[href="#book"]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); openCal(); });
   });
-  form.addEventListener('submit', function(e){ e.preventDefault(); advance(); });
-
-  function submitLead(){
-    /* honeypot: bots that filled it get a quiet dead end */
-    if (document.getElementById('hp-company').value) {
-      btnNext.disabled = true;
-      return;
-    }
-    var data = {
-      situation: (form.querySelector('input[name="situation"]:checked') || {}).value || '',
-      timing: (form.querySelector('input[name="timing"]:checked') || {}).value || '',
-      first_name: document.getElementById('f-first').value.trim(),
-      last_name: document.getElementById('f-last').value.trim(),
-      phone: document.getElementById('f-phone').value.trim(),
-      email: document.getElementById('f-email').value.trim()
-    };
-
-    /* CRM: post the lead to the practice's GHL/LeadConnector inbound
-       webhook. keepalive lets the request complete through the redirect;
-       sendBeacon is the fallback if fetch is unavailable or throws.
-       The conversion event still fires in exactly ONE place: thank-you.html. */
-    var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/M41ivVrk4nr1umhTsjWS/webhook-trigger/tuq4EA8LQ9ToESoupbnJ';
-    data.source = 'Smile Makeover Experience Day';
-    var payload = JSON.stringify(data);
-    try {
-      fetch(WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: payload,
-        keepalive: true
-      }).catch(function(){
-        if (navigator.sendBeacon) navigator.sendBeacon(WEBHOOK, payload);
-      });
-    } catch (e) {
-      if (navigator.sendBeacon) navigator.sendBeacon(WEBHOOK, payload);
-    }
-
-    btnNext.disabled = true;
-    /* GHL-hosted thank-you page (conversion fires there, and only there).
-       The URL already carries a query string, so extra params join with &. */
-    var THANK_YOU = 'https://sites.leadconnectorhq.com/preview/nje05pCGNticYWnKqWaT?notrack=true';
-    var name = encodeURIComponent(data.first_name);
-    window.location.href = THANK_YOU + (name ? '&name=' + name : '');
-  }
-
-  showStep(1);
 })();
 </script>
 </body>

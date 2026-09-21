@@ -178,8 +178,8 @@ for (const page of PAGES) {
     });
     typo.length === 0 ? pass('no heading widows detected') : typo.forEach((t) => console.log(`  warn  ${t}`));
 
-    // 9 · form behaviour (index only, one width per class of device)
-    if ((page === 'index.html' || page === 'smile-makeover.html') && (width === 375 || width === 1280)) {
+    // 9 · form behaviour (index only — smile-makeover uses a calendar now)
+    if (page === 'index.html' && (width === 375 || width === 1280)) {
       // validation blocks an empty step
       await pg.click('#btn-next');
       const err1 = await pg.evaluate(() => document.getElementById('err-step-1').classList.contains('show'));
@@ -224,6 +224,29 @@ for (const page of PAGES) {
       invalidBefore >= 4 && cleared !== 'true'
         ? pass('field errors set with aria-invalid and clear on input')
         : fail(`error lifecycle wrong (invalid=${invalidBefore}, cleared=${cleared})`);
+    }
+
+    // 9a · calendar pop-up behaviour (smile-makeover: form replaced by calendar)
+    if (page === 'smile-makeover.html' && (width === 375 || width === 1280)) {
+      const heroCal = await pg.evaluate(() => !!document.getElementById('oEO233PEbSHpRFqkzXwG_hero'));
+      heroCal ? pass('hero booking calendar present') : fail('hero calendar missing');
+
+      let modalHidden = await pg.evaluate(() => document.getElementById('cal-modal').hidden);
+      modalHidden ? pass('calendar pop-up starts hidden') : fail('calendar pop-up not hidden at load');
+
+      // a CTA opens the pop-up and lazy-loads the calendar iframe
+      await pg.evaluate(() => document.querySelector('a.btn[href="#book"]').click());
+      await pg.waitForTimeout(120);
+      const opened = await pg.evaluate(() =>
+        !document.getElementById('cal-modal').hidden &&
+        !!document.getElementById('cal-modal-embed').querySelector('iframe'));
+      opened ? pass('CTA opens calendar pop-up and loads iframe') : fail('CTA did not open calendar');
+
+      // Escape closes it again
+      await pg.keyboard.press('Escape');
+      await pg.waitForTimeout(120);
+      modalHidden = await pg.evaluate(() => document.getElementById('cal-modal').hidden);
+      modalHidden ? pass('Escape closes calendar pop-up') : fail('Escape did not close pop-up');
     }
 
     // 9b · before/after must actually swap pixels at the extremes —
