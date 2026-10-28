@@ -7,9 +7,10 @@
  *   node verify.mjs
  */
 import { chromium } from 'playwright-core';
+import { spawnSync } from 'node:child_process';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, existsSync, readdirSync } from 'node:fs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const WIDTHS = [360, 375, 414, 768, 1024, 1280, 1440];
@@ -21,9 +22,18 @@ let failures = 0;
 const fail = (msg) => { failures++; console.error(`  FAIL  ${msg}`); };
 const pass = (msg) => console.log(`  ok    ${msg}`);
 
-const browser = await chromium.launch({
-  executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
-});
+// Use CHROMIUM_PATH if set, else the newest preinstalled Chromium (the version folder changes between images)
+const findChromium = () => {
+  if (process.env.CHROMIUM_PATH) return process.env.CHROMIUM_PATH;
+  const base = '/opt/pw-browsers';
+  const dirs = existsSync(base) ? readdirSync(base).filter((d) => /^chromium-\d+$/.test(d)).sort((a, b) => b.split('-')[1] - a.split('-')[1]) : [];
+  for (const d of dirs) for (const sub of ['chrome-linux64', 'chrome-linux']) {
+    const p = join(base, d, sub, 'chrome');
+    if (existsSync(p)) return p;
+  }
+  return undefined;  // fall back to playwright's own lookup
+};
+const browser = await chromium.launch({ executablePath: findChromium() });
 
 const stubNetwork = (pg) =>
   pg.route(/^https?:\/\//, (r) => {
@@ -295,6 +305,50 @@ for (const page of PAGES) {
       await rmCtx.close();
     }
 
+    await ctx.close();
+  }
+}
+
+// 11 · cookie consent: every funnel page carries the current banner, and nothing
+// optional (Google map, marketing tags) runs before the visitor allows it
+{
+  console.log('\n== cookie consent ==');
+  const stamp = spawnSync(process.execPath, [join(root, 'scripts/stamp-consent.mjs'), '--check'], { encoding: 'utf8' });
+  stamp.status === 0 ? pass('consent block in sync on every funnel page') : fail(`consent block out of date — run node scripts/stamp-consent.mjs\n${stamp.stderr}`);
+  for (const page of ['index.html', 'smile-makeover.html', 'thank-you.html', 'smile-thank-you.html']) {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const pg = await ctx.newPage();
+    const errors = [];
+    pg.on('pageerror', (e) => errors.push(e.message));
+    await stubNetwork(pg);
+    await pg.goto(pathToFileURL(join(root, page)).href, { waitUntil: 'load' });
+    await pg.evaluate(() => localStorage.clear());
+    await pg.reload({ waitUntil: 'load' });
+    const look = () => pg.evaluate(() => ({
+      banner: !document.getElementById('lc-cookies').hidden,
+      mapLoaded: [...document.querySelectorAll('iframe[data-consent="maps"]')].some((f) => f.getAttribute('src')),
+      maps: document.querySelectorAll('iframe[data-consent="maps"]').length,
+      tagsRan: [...document.querySelectorAll('script[type="text/plain"][data-consent]')].every((s) => s.getAttribute('data-ran')),
+      tags: document.querySelectorAll('script[type="text/plain"][data-consent]').length,
+      ungated: [...document.querySelectorAll('iframe[src*="google.com/maps"]')].filter((f) => !f.hasAttribute('data-consent')).length,
+    }));
+    let st = await look();
+    st.banner ? pass(`${page}: banner shows on first visit`) : fail(`${page}: no banner on first visit`);
+    !st.mapLoaded && (st.tags === 0 || !st.tagsRan) && st.ungated === 0
+      ? pass(`${page}: nothing optional loads before a choice`) : fail(`${page}: optional content loaded before consent ${JSON.stringify(st)}`);
+    await pg.click('.lc-reject');
+    st = await look();
+    !st.banner && !st.mapLoaded && (st.tags === 0 || !st.tagsRan) ? pass(`${page}: Reject keeps optional content off`) : fail(`${page}: Reject ${JSON.stringify(st)}`);
+    await pg.reload({ waitUntil: 'load' });
+    st = await look();
+    !st.banner ? pass(`${page}: choice remembered`) : fail(`${page}: banner returned after a choice`);
+    await pg.click('[data-cookie-settings]');
+    const reopened = await pg.evaluate(() => !document.getElementById('lc-cookies').hidden && !document.querySelector('.lc-details').hidden);
+    reopened ? pass(`${page}: Cookie settings reopens the choices`) : fail(`${page}: Cookie settings did not reopen`);
+    await pg.click('.lc-accept');
+    st = await look();
+    (st.maps === 0 || st.mapLoaded) && (st.tags === 0 || st.tagsRan) ? pass(`${page}: Accept all loads map and tags`) : fail(`${page}: Accept ${JSON.stringify(st)}`);
+    errors.length ? fail(`${page}: page errors ${errors.join(' | ')}`) : pass(`${page}: no page errors`);
     await ctx.close();
   }
 }

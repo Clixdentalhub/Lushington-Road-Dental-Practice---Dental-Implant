@@ -1154,7 +1154,12 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
         <p class="anim" style="--d:260ms; margin:0"><a class="btn btn-gold" href="#book">Reserve my Experience Day place<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
       </div>
       <div class="map-frame anim" style="--d:180ms">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.1756898586555!2d0.28406069999999994!3d50.7671395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df73f97ba28757%3A0x7ed38c965cc5bcb5!2sLushington%20Road%20Dental%20Practice!5e1!3m2!1sen!2sph!4v1788016775593!5m2!1sen!2sph" title="Map showing Lushington Road Dental Practice, 2 Lushington Road, Eastbourne" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <iframe data-consent="maps" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.1756898586555!2d0.28406069999999994!3d50.7671395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df73f97ba28757%3A0x7ed38c965cc5bcb5!2sLushington%20Road%20Dental%20Practice!5e1!3m2!1sen!2sph!4v1788016775593!5m2!1sen!2sph" title="Map showing Lushington Road Dental Practice, 2 Lushington Road, Eastbourne" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" hidden></iframe>
+        <div class="lc-gate">
+          <strong>2 Lushington Road, Eastbourne, BN21 4LL</strong>
+          <small>The map is provided by Google, which may set cookies when it loads.</small>
+          <span><button class="lc-btn lc-btn--primary" type="button" data-consent-grant="maps">Show map</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Lushington+Road+Dental+Practice+Eastbourne" target="_blank" rel="noopener">Open in Google Maps</a></span>
+        </div>
       </div>
     </div>
   </section>
@@ -1172,7 +1177,8 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
       <div>
         <p style="margin-bottom:8px"><a href="https://www.lushingtondental.com" rel="noopener">lushingtondental.com</a></p>
         <p style="margin-bottom:8px"><a href="https://www.instagram.com/lushingtonroaddentalpractice" rel="noopener">Instagram</a></p>
-        <p><a href="https://www.facebook.com/LushingtonDental" rel="noopener">Facebook</a></p>
+        <p style="margin-bottom:8px"><a href="https://www.facebook.com/LushingtonDental" rel="noopener">Facebook</a></p>
+        <p><a href="#lc-cookies" data-cookie-settings>Cookie settings</a></p>
       </div>
       <div>
         <p style="margin-bottom:8px">Mon/Wed/Thu 8–6<br>Tue 8–7 · Fri 8–4<br>Sat 9–1</p>
@@ -1428,5 +1434,154 @@ html.js.can-motion .anim.in .rule-draw, html.js.can-motion .in .rule-draw{ trans
   });
 })();
 </script>
+<!-- consent:start -->
+<!-- Cookie consent (UK GDPR / PECR). Stamped into every page by scripts/stamp-consent.mjs; edit it here, not in the pages.
+     Essential (always on): remembering the choice, and the GHL booking calendar the visitor uses to book.
+     Optional, off until allowed:
+       maps       the Google map (Google may set cookies). Gate: <iframe data-consent="maps" data-src="…" hidden> + sibling .lc-gate
+       marketing  Meta Pixel / Google Ads conversion tags. Gate: <script type="text/plain" data-consent="marketing">…</script>
+     The choice is stored per site (localStorage), so one answer covers every funnel page on the same domain. -->
+<style>
+.lc-banner{
+  position:fixed; z-index:1100; left:16px; right:16px; bottom:calc(16px + env(safe-area-inset-bottom, 0px));
+  max-width:460px; max-height:calc(100vh - 32px); overflow:auto; box-sizing:border-box;
+  padding:24px; border-radius:var(--radius-lg, 20px); background:var(--color-surface, #fff); color:var(--color-foreground, #362231);
+  font-family:var(--font-body, system-ui, sans-serif); font-size:15px; line-height:1.55; text-align:left;
+  box-shadow:0 24px 60px rgba(47,21,39,.3), 0 0 0 1px var(--color-border, #EADFD2);
+}
+.lc-banner[hidden], .lc-banner [hidden]{ display:none !important; }
+.lc-banner:not([hidden]){ animation:lcIn .45s cubic-bezier(.22,1,.36,1) both; }
+@keyframes lcIn{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
+.lc-banner h2{ font-family:var(--font-head, Georgia, serif); font-size:24px; font-weight:600; line-height:1.15; margin:0 0 6px; color:inherit; }
+.lc-banner p{ margin:0 0 16px; font-size:14.5px; color:var(--color-foreground-mut, #6E5A67); }
+.lc-banner a{ color:var(--color-accent, #93305F); }
+.lc-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+.lc-btn{ flex:1 1 auto; min-height:46px; padding:0 20px; border-radius:999px; cursor:pointer; font:700 14px/1 var(--font-body, system-ui, sans-serif); letter-spacing:.02em;
+  border:1.5px solid var(--color-accent, #93305F); background:transparent; color:var(--color-accent, #93305F); }
+.lc-btn--primary{ background:var(--color-accent, #93305F); color:var(--color-on-accent, #FBF4F7); }
+.lc-btn:hover{ background:var(--color-accent-dark, #78264D); border-color:var(--color-accent-dark, #78264D); color:var(--color-on-accent, #FBF4F7); }
+.lc-manage{ flex-basis:100%; background:none; border:0; padding:6px 0 0; cursor:pointer; text-align:left;
+  font:700 13px/1 var(--font-body, system-ui, sans-serif); color:var(--color-accent, #93305F); text-decoration:underline; text-underline-offset:4px; }
+.lc-btn:focus-visible, .lc-manage:focus-visible{ outline:2px solid var(--color-accent, #93305F); outline-offset:3px; }
+.lc-details{ border-top:1px solid var(--color-border, #EADFD2); margin:0 0 16px; }
+.lc-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; border-bottom:1px solid var(--color-border, #EADFD2); }
+label.lc-row{ cursor:pointer; }
+.lc-row > span:first-child{ display:grid; gap:2px; }
+.lc-row strong{ font-size:15px; color:var(--color-foreground, #362231); }
+.lc-row small{ font-size:13.5px; line-height:1.45; color:var(--color-foreground-mut, #6E5A67); }
+.lc-always{ font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--color-foreground-mut, #6E5A67); white-space:nowrap; }
+.lc-switch{ position:relative; flex:none; width:46px; height:26px; }
+.lc-switch input{ position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; }
+.lc-switch i{ position:absolute; inset:0; border-radius:99px; background:#8F7F89; transition:background .24s; pointer-events:none; }
+.lc-switch i::after{ content:""; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.25); transition:transform .24s; }
+.lc-switch input:checked + i{ background:var(--color-accent, #93305F); }
+.lc-switch input:checked + i::after{ transform:translateX(20px); }
+.lc-switch input:focus-visible + i{ outline:2px solid var(--color-accent, #93305F); outline-offset:2px; }
+.lc-save{ width:100%; margin-top:16px; }
+/* map placeholder until maps are allowed */
+.lc-gate{ display:flex; flex-direction:column; justify-content:flex-end; gap:6px; min-height:320px; box-sizing:border-box; padding:24px;
+  background:repeating-linear-gradient(45deg, rgba(69,33,58,.05) 0 2px, transparent 2px 22px), var(--color-muted, #F3EADE); color:var(--color-foreground, #362231); text-align:left; }
+.lc-gate strong{ font-family:var(--font-head, Georgia, serif); font-size:24px; font-weight:600; line-height:1.15; }
+.lc-gate small{ font-size:14px; color:var(--color-foreground-mut, #6E5A67); }
+.lc-gate span{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; margin-top:12px; }
+.lc-gate .lc-btn{ flex:0 0 auto; }
+.lc-gate a{ font-weight:700; font-size:14px; color:var(--color-accent, #93305F); }
+@media (prefers-reduced-motion: reduce){ .lc-banner:not([hidden]){ animation:none; } }
+</style>
+<section class="lc-banner" id="lc-cookies" role="region" aria-labelledby="lc-title" hidden>
+  <h2 id="lc-title">Cookies on this page</h2>
+  <p>We use essential storage to run this page and our booking calendar. With your permission we'd also show a Google map and measure whether our adverts work. Nothing optional runs until you choose.</p>
+  <div class="lc-details" hidden>
+    <div class="lc-row">
+      <span><strong>Essential</strong><small>Remembers your choice and runs our booking calendar (LeadConnector).</small></span>
+      <span class="lc-always">Always on</span>
+    </div>
+    <label class="lc-row">
+      <span><strong>Maps</strong><small>Shows the Google map of our location. Google may set cookies.</small></span>
+      <span class="lc-switch"><input type="checkbox" data-category="maps"><i aria-hidden="true"></i></span>
+    </label>
+    <label class="lc-row">
+      <span><strong>Marketing</strong><small>Lets Meta (Facebook, Instagram) and Google Ads know a request was made, so we can see which adverts work.</small></span>
+      <span class="lc-switch"><input type="checkbox" data-category="marketing"><i aria-hidden="true"></i></span>
+    </label>
+    <button class="lc-btn lc-save" type="button">Save choices</button>
+  </div>
+  <div class="lc-actions">
+    <button class="lc-btn lc-btn--primary lc-accept" type="button">Accept all</button>
+    <button class="lc-btn lc-reject" type="button">Reject optional</button>
+    <button class="lc-manage" type="button" aria-expanded="false">Manage choices</button>
+  </div>
+</section>
+<script>
+(function(){
+  'use strict';
+  var KEY = 'lrdp-funnel-consent', VERSION = 1, CATEGORIES = ['maps', 'marketing'];
+  var banner = document.getElementById('lc-cookies');
+  if (!banner) return;
+  function read(){
+    try { var c = JSON.parse(localStorage.getItem(KEY) || 'null'); return c && c.v === VERSION ? c : null; } catch (e) { return null; }
+  }
+  var state = read();
+  function allowed(cat){ return !!(state && state.choices && state.choices[cat]); }
+  function all(v){ var o = {}; CATEGORIES.forEach(function(c){ o[c] = v; }); return o; }
+  function save(choices){
+    state = { v: VERSION, at: new Date().toISOString(), choices: choices };
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    apply();
+  }
+  function apply(){
+    document.querySelectorAll('iframe[data-consent]').forEach(function(f){
+      var ok = allowed(f.getAttribute('data-consent'));
+      var gate = f.parentNode.querySelector('.lc-gate');
+      if (ok && !f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src'));
+      if (!ok && f.getAttribute('src')) f.removeAttribute('src');   // withdrawing consent unloads it again
+      f.hidden = !ok;
+      if (gate) gate.hidden = ok;
+    });
+    // gated tags run once, the first time their category is allowed
+    document.querySelectorAll('script[type="text/plain"][data-consent]').forEach(function(s){
+      if (!allowed(s.getAttribute('data-consent')) || s.getAttribute('data-ran')) return;
+      var n = document.createElement('script');
+      if (s.getAttribute('data-src')) { n.src = s.getAttribute('data-src'); n.async = true; } else n.text = s.text;
+      s.setAttribute('data-ran', '1');
+      s.parentNode.insertBefore(n, s.nextSibling);
+    });
+    banner.querySelectorAll('input[data-category]').forEach(function(i){ i.checked = allowed(i.getAttribute('data-category')); });
+    window.lrdpConsent = { allowed: allowed };
+    try { document.dispatchEvent(new CustomEvent('lrdp:consent', { detail: state && state.choices })); } catch (e) {}
+  }
+  var details = banner.querySelector('.lc-details'), manage = banner.querySelector('.lc-manage'), lastFocus = null;
+  function open(showDetails, takeFocus){
+    lastFocus = takeFocus ? document.activeElement : null;
+    banner.hidden = false;
+    details.hidden = !showDetails;
+    manage.setAttribute('aria-expanded', String(!!showDetails));
+    if (takeFocus) (banner.querySelector(showDetails ? 'input[data-category]' : '.lc-accept')).focus({ preventScroll: true });
+  }
+  function close(){
+    banner.hidden = true;
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+  }
+  banner.querySelector('.lc-accept').addEventListener('click', function(){ save(all(true)); close(); });
+  banner.querySelector('.lc-reject').addEventListener('click', function(){ save(all(false)); close(); });
+  manage.addEventListener('click', function(){ var show = details.hidden; details.hidden = !show; manage.setAttribute('aria-expanded', String(show)); });
+  banner.querySelector('.lc-save').addEventListener('click', function(){
+    var o = {}; banner.querySelectorAll('input[data-category]').forEach(function(i){ o[i.getAttribute('data-category')] = i.checked; });
+    save(o); close();
+  });
+  document.addEventListener('click', function(e){
+    var t = e.target.closest && e.target.closest('[data-cookie-settings], [data-consent-grant]');
+    if (!t) return;
+    e.preventDefault();
+    if (t.hasAttribute('data-cookie-settings')) { open(true, true); return; }
+    var o = state && state.choices ? JSON.parse(JSON.stringify(state.choices)) : all(false);
+    o[t.getAttribute('data-consent-grant')] = true;
+    save(o); close();
+  });
+  apply();
+  if (!state) open(false, false);
+})();
+</script>
+<!-- consent:end -->
 </body>
 </html>

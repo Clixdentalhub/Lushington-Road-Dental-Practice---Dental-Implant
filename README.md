@@ -16,6 +16,22 @@ WCAG AA measured rather than assumed.
 | `verify.mjs` | Playwright harness — all pages at 360/375/414/768/1024/1280/1440: overflow, console/page errors, image alts, single h1, dead/bracketed hrefs, JSON-LD, dark-band contrast, `--header-h` vs the rendered header, heading widows, the full form behaviour contract, reduced-motion finished states, and full-page screenshots. |
 | `build.mjs` | Deployment build → `dist/`: inlines `assets/` images as data URIs and prints everything still unresolved before publish. |
 
+## Cookie consent
+
+Every funnel page carries the same banner (UK GDPR / PECR), stamped from
+`partials/consent.html` by `node scripts/stamp-consent.mjs` (edit the
+partial, then re-stamp; `verify.mjs` fails if a page is out of date).
+
+- **Essential** (always on): remembering the choice, the GHL booking calendar.
+- **Maps**: the Google map waits behind a placeholder with *Show map* /
+  *Open in Google Maps*.
+- **Marketing**: conversion tags in `<script type="text/plain"
+  data-consent="marketing">` run only once allowed.
+
+The choice is stored per domain, so one answer covers every funnel page
+hosted on the same domain. Visitors can reopen it from *Cookie settings*
+in the footer.
+
 ## Run the checks
 
 ```sh
@@ -40,7 +56,10 @@ node build.mjs       # writes dist/ and prints the pre-publish checklist
    endpoint in the marked `CRM INTEGRATION BLOCK` in `index.html`
    (`submitLead()`). The onboarding pack's QA form reference is noted there.
 6. **Conversion tag** — paste the Meta Pixel / Google Ads snippet into the
-   marked block in `thank-you.html` `<head>` only.
+   consent-gated `<script type="text/plain" data-consent="marketing">` in
+   the marked block in the thank-you pages' `<head>` only (JavaScript only,
+   without its `<noscript>` image). Do **not** add pixels through GHL's
+   funnel/site "tracking code" settings: those load before consent.
 7. Once 1–6 are done, remove the `noindex` meta from `index.html`
    (`thank-you.html` keeps its `noindex` forever).
 
